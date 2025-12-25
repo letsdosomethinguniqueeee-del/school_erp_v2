@@ -73,9 +73,9 @@ import {
   GridItem,
   useToast,
   TableContainer,
-  InputRightElement,
-  keyframes
+  InputRightElement
 } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
 import { SearchIcon, AddIcon, EditIcon, DeleteIcon, LockIcon, UnlockIcon, ViewIcon, ViewOffIcon, RepeatIcon, ChevronLeftIcon, ChevronRightIcon, ArrowBackIcon, CloseIcon } from '@chakra-ui/icons';
 
 // Animation keyframes for refresh icon lines
