@@ -48,7 +48,7 @@ const getAllowedOrigins = () => {
     
     // Fallback to default if no environment variable is set (for initial setup)
     if (origins.length === 0) {
-      origins.push('https://school-erp-v2-tan.vercel.app/');
+      origins.push('https://school-erp-v2-tan.vercel.app');
     }
     
     return origins;
