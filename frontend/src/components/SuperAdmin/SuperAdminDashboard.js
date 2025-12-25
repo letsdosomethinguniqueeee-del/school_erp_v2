@@ -167,7 +167,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'enhanced-fees-management',
       title: 'Enhanced Fees Management',
-      description: 'Advanced fees management with multi-year tracking, analytics, and bulk operations',
+      description: 'Fees management with multi-year tracking, analytics, and bulk operations',
       icon: 'dollar-sign',
       color: 'primary',
       action: () => navigate('/super-admin/enhanced-fees-management')
@@ -360,9 +360,9 @@ const SuperAdminDashboard = ({ user }) => {
                 >
                   <CardBody p={{ base: 5, sm: 6, md: 6, lg: 7 }}>
                     <VStack spacing={{ base: 3, sm: 4 }} align="stretch" w="full">
-                      {/* Icon and Title in same line */}
+                      {/* First line: Icon on left, Title centered in remaining space */}
                       <HStack spacing={{ base: 3, sm: 4 }} align="center" w="full">
-                        {/* Icon in a box */}
+                        {/* Icon on the left */}
                         <Box
                           bg={iconBoxBg}
                           borderRadius="md"
@@ -386,26 +386,27 @@ const SuperAdminDashboard = ({ user }) => {
                           </Box>
                         </Box>
                         
-                        {/* Title */}
+                        {/* Title centered in remaining space */}
                         <Heading
                           as="h3"
                           fontSize={{ base: '0.875rem', sm: '0.875rem', md: '1.25rem', lg: '1.25rem', xl: '1.25rem' }}
                           color={headingColor}
                           fontWeight="600"
                           lineHeight="1.3"
+                          textAlign="center"
                           flex={1}
-                          textAlign="left"
                         >
                           {feature.title}
                         </Heading>
                       </HStack>
                       
-                      {/* Description on second line */}
+                      {/* Second line: Description centered */}
                       <Text
-                        fontSize={{ base: '0.75rem', sm: '0.75rem', md: '0.75rem', lg: '1rem', xl: '1rem' }}
+                        fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.75rem', xl: '0.75rem' }}
                         color={textColor}
                         lineHeight="1.6"
-                        textAlign="left"
+                        textAlign="center"
+                        w="full"
                       >
                         {feature.description}
                       </Text>
