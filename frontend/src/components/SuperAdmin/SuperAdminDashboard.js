@@ -360,8 +360,8 @@ const SuperAdminDashboard = ({ user }) => {
                 >
                   <CardBody p={{ base: 5, sm: 6, md: 6, lg: 7 }}>
                     <VStack spacing={{ base: 3, sm: 4 }} align="stretch" w="full">
-                      {/* First line: Icon on left, Title centered in remaining space */}
-                      <HStack spacing={{ base: 3, sm: 4 }} align="center" w="full">
+                      {/* First line: Icon and Title on left side */}
+                      <HStack spacing={{ base: 3, sm: 4 }} align="center" w="full" justify="flex-start">
                         {/* Icon on the left */}
                         <Box
                           bg={iconBoxBg}
@@ -386,15 +386,14 @@ const SuperAdminDashboard = ({ user }) => {
                           </Box>
                         </Box>
                         
-                        {/* Title centered in remaining space */}
+                        {/* Title on left after icon */}
                         <Heading
                           as="h3"
                           fontSize={{ base: '0.875rem', sm: '0.875rem', md: '1.25rem', lg: '1.25rem', xl: '1.25rem' }}
                           color={headingColor}
                           fontWeight="600"
                           lineHeight="1.3"
-                          textAlign="center"
-                          flex={1}
+                          textAlign="left"
                         >
                           {feature.title}
                         </Heading>
