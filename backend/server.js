@@ -30,10 +30,49 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
+// CORS configuration - Security: Only allow explicitly listed frontend URLs
+const getAllowedOrigins = () => {
+  if (process.env.NODE_ENV === 'production') {
+    const origins = [];
+    
+    // Primary frontend URL from environment variable
+    if (process.env.FRONTEND_URL) {
+      origins.push(process.env.FRONTEND_URL);
+    }
+    
+    // Additional frontend URLs from environment (comma-separated)
+    if (process.env.FRONTEND_URLS) {
+      const additionalUrls = process.env.FRONTEND_URLS.split(',').map(url => url.trim());
+      origins.push(...additionalUrls);
+    }
+    
+    // Fallback to default if no environment variable is set (for initial setup)
+    if (origins.length === 0) {
+      origins.push('https://school-erp-v2.vercel.app');
+    }
+    
+    return origins;
+  }
+  return ['http://localhost:3000', 'http://localhost:3001'];
+};
+
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? 'https://school-erp-qtpg.vercel.app'
-    : ['http://localhost:3000', 'http://localhost:3001'],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests) only in development
+    if (!origin) {
+      return callback(null, process.env.NODE_ENV !== 'production');
+    }
+    
+    const allowedOrigins = getAllowedOrigins();
+    
+    // Strict check: origin must exactly match one of the allowed origins
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.warn(`CORS blocked request from unauthorized origin: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
