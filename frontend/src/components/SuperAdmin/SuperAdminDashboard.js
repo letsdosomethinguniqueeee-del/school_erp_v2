@@ -307,7 +307,7 @@ const SuperAdminDashboard = ({ user }) => {
             
             {/* Description */}
             <Text
-              fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.75rem', xl: '0.75rem' }}
+              fontSize={{ base: '0.75rem', sm: '0.75rem', md: '0.75rem', lg: '1rem', xl: '1rem' }}
               textAlign="center"
               color={textColor}
               maxW="2xl"
