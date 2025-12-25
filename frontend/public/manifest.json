@@ -1,0 +1,8 @@
+{
+  "short_name": "School ERP",
+  "name": "School ERP Management System",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
