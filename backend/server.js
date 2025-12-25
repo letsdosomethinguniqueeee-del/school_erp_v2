@@ -56,7 +56,8 @@ const getAllowedOrigins = () => {
   return ['http://localhost:3000', 'http://localhost:3001'];
 };
 
-app.use(cors({
+// CORS configuration with better error handling
+const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests) only in development
     if (!origin) {
@@ -65,21 +66,35 @@ app.use(cors({
     
     const allowedOrigins = getAllowedOrigins();
     
+    // Log for debugging
+    console.log('CORS check - Origin:', origin);
+    console.log('CORS check - Allowed origins:', allowedOrigins);
+    
     // Strict check: origin must exactly match one of the allowed origins
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.warn(`CORS blocked request from unauthorized origin: ${origin}`);
-      callback(new Error('Not allowed by CORS'));
+      console.warn(`❌ CORS blocked request from unauthorized origin: ${origin}`);
+      console.warn(`✅ Allowed origins are: ${allowedOrigins.join(', ')}`);
+      // Return false instead of error to prevent server crash
+      callback(null, false);
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}));
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
+// Log CORS configuration on startup
+console.log('🔒 CORS Configuration:');
+console.log('   Environment:', process.env.NODE_ENV || 'development');
+console.log('   Allowed Origins:', getAllowedOrigins());
+console.log('   FRONTEND_URL:', process.env.FRONTEND_URL || 'not set');
+console.log('   FRONTEND_URLS:', process.env.FRONTEND_URLS || 'not set');
 
 // Connect to MongoDB Atlas
 mongoose.connect(MONGO_URI, {
