@@ -1,0 +1,40 @@
+/* User & Roles Management Styles - Matching SystemConfiguration */
+.user-roles-header {
+  margin-top: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-roles-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.user-roles-header-right {
+  display: flex;
+  align-items: center;
+}
+
+
+.user-roles-tab-content h3 {
+  margin-bottom: 12px;
+}
+
+.user-roles-dummy-content {
+  padding: 16px;
+}
+
+.user-roles-dummy-content p {
+  margin-bottom: 8px;
+}
+
+.user-roles-dummy-content ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.user-roles-dummy-content li {
+  margin-bottom: 4px;
+}

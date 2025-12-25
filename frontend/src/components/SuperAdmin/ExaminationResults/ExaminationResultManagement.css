@@ -1,0 +1,75 @@
+/* ExaminationResultManagement.css - Consistent with SystemConfiguration */
+
+/* Hide scrollbar for all browsers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Ensure body and html can scroll without visible scrollbar */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Hide scrollbar for all divs and containers */
+div, section, main, article, aside, nav, header, footer {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+div::-webkit-scrollbar, section::-webkit-scrollbar, main::-webkit-scrollbar, 
+article::-webkit-scrollbar, aside::-webkit-scrollbar, nav::-webkit-scrollbar, 
+header::-webkit-scrollbar, footer::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+:root {
+  --tab-blue: #3182ce;
+  --tab-text-default: #2d3748;
+  --tab-text-hover: #1a365d;
+  --tab-text-selected: #ffffff;
+  --tab-bg-hover: #edf2f7;
+}
+
+.enhanced-fees-header {
+  margin-top: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enhanced-fees-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

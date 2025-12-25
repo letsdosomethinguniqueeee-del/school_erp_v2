@@ -1,0 +1,166 @@
+/* Additional Login-specific styles */
+.help-text {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.help-text p {
+  color: #6b7280;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Enhanced role selector animations */
+.role-option {
+  position: relative;
+  overflow: hidden;
+}
+
+.role-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.role-option:hover::before {
+  left: 100%;
+}
+
+/* Form validation styles */
+.form-group input:invalid {
+  border-color: #dc3545;
+}
+
+.form-group input:valid {
+  border-color: #28a745;
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.password-strength.weak {
+  color: #dc3545;
+}
+
+.password-strength.medium {
+  color: #ffc107;
+}
+
+.password-strength.strong {
+  color: #28a745;
+}
+
+/* Remember me checkbox */
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 8px;
+  width: auto;
+}
+
+/* Forgot password link */
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password a {
+  color: #667eea;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Social login buttons (for future use) */
+.social-login {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-login p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.social-btn {
+  padding: 10px 20px;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.social-btn:hover {
+  background: #f8f9fa;
+  border-color: #667eea;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* Success animation */
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.success-animation {
+  animation: successPulse 0.5s ease-in-out;
+}
+
+/* Error shake animation */
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.error-shake {
+  animation: errorShake 0.5s ease-in-out;
+}

@@ -1,0 +1,324 @@
+/* Faculty Page Styles */
+.faculty-page {
+  background-color: white;
+}
+
+.page-header {
+  padding: 5rem 0 4rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  animation: moveBackground 20s ease-in-out infinite;
+}
+
+@keyframes moveBackground {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 30px); }
+}
+
+.page-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.page-subtitle {
+  font-size: 1.4rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.faculty-intro {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+/* Faculty Stats */
+.faculty-stats {
+  padding: 3rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Departments */
+.departments-section {
+  padding: 4rem 0;
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.department-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.department-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dept-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.department-card h3 {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Faculty Members */
+.faculty-members {
+  padding: 4rem 0;
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.faculty-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.faculty-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border-color: #3b82f6;
+}
+
+.faculty-image {
+  height: 250px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  position: relative;
+}
+
+.faculty-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 60%);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.faculty-info {
+  padding: 2rem;
+}
+
+.faculty-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.faculty-designation {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #3b82f6;
+  font-size: 1.05rem;
+}
+
+.faculty-department {
+  color: #64748b;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e2e8f0;
+}
+
+.faculty-details {
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.faculty-details p {
+  margin: 0.5rem 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Professional Development */
+.development-section {
+  padding: 4rem 0;
+}
+
+.development-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.development-content > p {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.development-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.dev-card {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.dev-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.dev-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.dev-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Careers Section */
+.careers-section {
+  padding: 4rem 0;
+  text-align: center;
+  color: white;
+}
+
+.careers-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.careers-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.careers-btn {
+  padding: 15px 40px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.careers-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .departments-grid,
+  .development-grid {
+    grid-template-columns: 1fr;
+  }
+}

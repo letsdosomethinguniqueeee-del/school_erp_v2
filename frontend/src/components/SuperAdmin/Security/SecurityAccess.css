@@ -1,0 +1,58 @@
+/* Hide scrollbar for all browsers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Ensure body and html can scroll without visible scrollbar */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Hide scrollbar for all divs and containers */
+div, section, main, article, aside, nav, header, footer {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+div::-webkit-scrollbar, section::-webkit-scrollbar, main::-webkit-scrollbar, 
+article::-webkit-scrollbar, aside::-webkit-scrollbar, nav::-webkit-scrollbar, 
+header::-webkit-scrollbar, footer::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.enhanced-fees-header {
+  margin-top: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Tab styling variables */
+:root {
+  --tab-blue: #3182ce;
+  --tab-text-default: #2d3748;
+  --tab-text-hover: #2b6cb0;
+  --tab-text-selected: white;
+  --tab-bg-hover: #edf2f7;
+}

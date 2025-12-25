@@ -1,0 +1,397 @@
+/* Admissions Page Styles */
+.admissions-page {
+  background-color: white;
+}
+
+.page-header {
+  padding: 5rem 0 4rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  animation: moveBackground 20s ease-in-out infinite;
+}
+
+@keyframes moveBackground {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 30px); }
+}
+
+.page-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.page-subtitle {
+  font-size: 1.4rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.admission-overview {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.overview-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.lead-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Key Dates */
+.key-dates-section {
+  padding: 4rem 0;
+}
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.date-card {
+  text-align: center;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border-top: 4px solid #3b82f6;
+}
+
+.date-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.date-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.date-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.date-text {
+  font-size: 1.05rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* Admission Process */
+.process-section {
+  padding: 4rem 0;
+}
+
+.process-timeline {
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.process-step {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 60px;
+  bottom: -30px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+  padding-top: 0.5rem;
+}
+
+.step-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.step-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Required Documents */
+.documents-section {
+  padding: 4rem 0;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.document-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.doc-icon {
+  font-size: 1.5rem;
+}
+
+.document-item p {
+  margin: 0;
+  color: #555;
+}
+
+/* Eligibility */
+.eligibility-section {
+  padding: 4rem 0;
+}
+
+.eligibility-content {
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.eligibility-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.eligibility-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.eligibility-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.eligibility-card li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.eligibility-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.eligibility-card li:last-child {
+  border-bottom: none;
+}
+
+.eligibility-note {
+  padding: 1rem;
+  background: #fff3cd;
+  border-left: 4px solid;
+  border-radius: 5px;
+}
+
+/* Fee Section */
+.fee-section {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.fee-content {
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.fee-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.btn-download {
+  padding: 12px 30px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Contact Section */
+.admission-contact {
+  padding: 4rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.contact-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.contact-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.contact-card a {
+  color: #666;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem 0;
+  text-align: center;
+  color: white;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.btn-apply {
+  padding: 15px 40px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dates-grid,
+  .documents-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .process-step:not(:last-child)::after {
+    display: none;
+  }
+}
