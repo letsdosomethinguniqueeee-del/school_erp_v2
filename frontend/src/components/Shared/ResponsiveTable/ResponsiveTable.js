@@ -540,28 +540,30 @@ const ResponsiveTable = ({
 
       {/* Pagination */}
       {showPagination && totalPages > 1 && (
-        <Box p={4} borderTop="1px solid" borderColor={borderColor}>
+        <Box p={{ base: 3, sm: 3, md: 4 }} borderTop="1px solid" borderColor={borderColor}>
           <Flex
             direction={{ base: "column", lg: "row" }}
             justify="space-between"
             align="center"
-            gap={4}
+            gap={{ base: 2, sm: 3, md: 4 }}
           >
             {/* Page Info - Left side on large screens, top on small screens */}
-            <HStack spacing={3} align="center" flexWrap="wrap" justify={{ base: "center", lg: "start" }}>
+            <HStack spacing={2} align="center" flexWrap="nowrap" justify={{ base: "center", lg: "start" }}>
               {showPageSizeSelector && (
-                <HStack spacing={2}>
-                  <Text fontSize="sm">Show:</Text>
+                <HStack spacing={1.5}>
+                  <Text fontSize={{ base: "0.75rem", sm: "0.8125rem", md: "0.875rem" }} whiteSpace="nowrap">Show:</Text>
                   <Select
                     size="sm"
                     value={selectedPageSize}
                     onChange={(e) => handlePageSizeChange(e.target.value)}
-                    width="70px"
+                    width="60px"
+                    fontSize={{ base: "0.75rem", sm: "0.8125rem", md: "0.875rem" }}
+                    height="28px"
                     sx={{
-                      paddingLeft: "8px !important",
-                      paddingRight: "8px !important",
-                      paddingTop: "4px !important",
-                      paddingBottom: "4px !important"
+                      paddingLeft: "6px !important",
+                      paddingRight: "6px !important",
+                      paddingTop: "2px !important",
+                      paddingBottom: "2px !important"
                     }}
                   >
                     <option value={5}>5</option>
@@ -573,7 +575,11 @@ const ResponsiveTable = ({
                 </HStack>
               )}
               {showTotalCount && (
-                <Text fontSize="sm" color="gray.600">
+                <Text 
+                  fontSize={{ base: "0.75rem", sm: "0.8125rem", md: "0.875rem" }} 
+                  color="gray.600"
+                  whiteSpace="nowrap"
+                >
                   Showing {startItem} to {endItem} of {sortedData.length} entries
                 </Text>
               )}
