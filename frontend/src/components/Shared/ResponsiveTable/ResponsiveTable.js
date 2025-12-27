@@ -162,7 +162,21 @@ const ResponsiveTable = ({
   // Render sort icon
   const renderSortIcon = (field) => {
     if (!sortable || sortField !== field) return null;
-    return sortDirection === 'asc' ? <ChevronUpIcon /> : <ChevronDownIcon />;
+    const IconComponent = sortDirection === 'asc' ? ChevronUpIcon : ChevronDownIcon;
+    return (
+      <Box
+        sx={{
+          '@media (max-width: 480px)': {
+            '& svg': {
+              width: '12px !important',
+              height: '12px !important'
+            }
+          }
+        }}
+      >
+        <IconComponent />
+      </Box>
+    );
   };
 
   // Render action buttons
@@ -322,8 +336,42 @@ const ResponsiveTable = ({
           >
             <Box flex="1" minW="200px">
               <InputGroup>
-                <InputLeftElement pointerEvents="none">
-                  <SearchIcon color="gray.400" />
+                <InputLeftElement 
+                  pointerEvents="none"
+                  sx={{
+                    '@media (max-width: 768px)': {
+                      width: '28px !important',
+                      height: '28px !important',
+                      left: '8px !important',
+                      '& svg': {
+                        width: '16px !important',
+                        height: '16px !important'
+                      }
+                    },
+                    '@media (max-width: 480px)': {
+                      width: '24px !important',
+                      height: '24px !important',
+                      left: '6px !important',
+                      '& svg': {
+                        width: '14px !important',
+                        height: '14px !important'
+                      }
+                    }
+                  }}
+                >
+                  <SearchIcon 
+                    color="gray.400"
+                    sx={{
+                      '@media (max-width: 768px)': {
+                        width: '16px !important',
+                        height: '16px !important'
+                      },
+                      '@media (max-width: 480px)': {
+                        width: '14px !important',
+                        height: '14px !important'
+                      }
+                    }}
+                  />
                 </InputLeftElement>
                 <Input
                   placeholder={searchPlaceholder}
@@ -333,7 +381,17 @@ const ResponsiveTable = ({
                   borderColor="gray.300"
                   sx={{
                     paddingLeft: "40px !important",
-                    paddingRight: searchTerm ? "40px !important" : "12px !important"
+                    paddingRight: searchTerm ? "40px !important" : "12px !important",
+                    '@media (max-width: 768px)': {
+                      paddingLeft: "36px !important",
+                      paddingRight: searchTerm ? "36px !important" : "10px !important",
+                      fontSize: "14px !important"
+                    },
+                    '@media (max-width: 480px)': {
+                      paddingLeft: "32px !important",
+                      paddingRight: searchTerm ? "32px !important" : "8px !important",
+                      fontSize: "13px !important"
+                    }
                   }}
                   _hover={{ borderColor: "blue.400" }}
                   _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
@@ -381,9 +439,24 @@ const ResponsiveTable = ({
                   minW={column.minWidth || "120px"}
                   maxW={column.maxWidth || "none"}
                   display="table-cell"
+                  px={{ base: '8px', sm: '12px', md: '16px' }}
+                  py={{ base: '8px', sm: '12px', md: '16px' }}
+                  sx={{
+                    '@media (max-width: 480px)': {
+                      padding: '8px 6px !important'
+                    }
+                  }}
                 >
                   <HStack spacing={2}>
-                    <Text fontSize="sm" fontWeight="600">
+                    <Text 
+                      fontSize={{ base: '0.625rem', sm: '0.75rem', md: '0.875rem' }} 
+                      fontWeight="600"
+                      sx={{
+                        '@media (max-width: 480px)': {
+                          fontSize: '0.625rem !important'
+                        }
+                      }}
+                    >
                       {column.label}
                     </Text>
                     {renderSortIcon(column.key)}
@@ -391,8 +464,28 @@ const ResponsiveTable = ({
                 </Th>
               ))}
               {(onView || onEdit || onDelete) && (
-                <Th textAlign="center" whiteSpace="nowrap">
-                  Actions
+                <Th 
+                  textAlign="center" 
+                  whiteSpace="nowrap"
+                  sx={{
+                    '@media (max-width: 480px)': {
+                      '& *': {
+                        fontSize: '0.625rem !important'
+                      }
+                    }
+                  }}
+                >
+                  <Text 
+                    fontSize={{ base: '0.625rem', sm: '0.75rem', md: '0.875rem' }}
+                    fontWeight="600"
+                    sx={{
+                      '@media (max-width: 480px)': {
+                        fontSize: '0.625rem !important'
+                      }
+                    }}
+                  >
+                    Actions
+                  </Text>
                 </Th>
               )}
             </Tr>
