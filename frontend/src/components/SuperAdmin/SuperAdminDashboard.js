@@ -268,12 +268,18 @@ const SuperAdminDashboard = ({ user }) => {
         <Box
           bg={cardBg}
           borderRadius={{ base: 'md', md: 'lg' }}
-          p="25px"
-          mb="30px"
+          p={{ base: '10px', sm: '25px' }}
+          mb={{ base: '15px', sm: '30px' }}
           boxShadow="sm"
           border="1px solid"
           borderColor={borderColor}
           w="100%"
+          sx={{
+            '@media (max-width: 480px)': {
+              padding: '10px',
+              marginBottom: '15px'
+            }
+          }}
         >
           <VStack 
             spacing={{ base: 5, sm: 6, md: 7 }} 
