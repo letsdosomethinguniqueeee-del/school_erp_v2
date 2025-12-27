@@ -206,21 +206,21 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'database',
       title: 'Database Management',
-      description: 'Monitor database performance and manage data operations',
+      description: 'Monitor database performance and operations',
       icon: 'database',
       color: 'info'
     },
     {
       id: 'backup',
       title: 'Backup & Recovery',
-      description: 'Schedule backups and manage data recovery procedures',
+      description: 'Schedule backups and recovery procedures',
       icon: 'backup',
       color: 'success'
     },
     {
       id: 'analytics',
       title: 'System Analytics',
-      description: 'View system performance metrics and usage statistics',
+      description: 'View performance metrics and statistics',
       icon: 'chart',
       color: 'danger'
     },
