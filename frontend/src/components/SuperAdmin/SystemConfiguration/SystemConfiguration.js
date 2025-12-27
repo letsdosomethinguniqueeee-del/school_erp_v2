@@ -197,6 +197,8 @@ const SystemConfiguration = ({ user }) => {
             backgroundColor: { base: 'transparent', md: 'white' },
             border: { base: 'none', md: '1px solid #e9ecef' },
             mb: '0px',
+            fontSize: { base: '0.875rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' },
+            fontWeight: '600',
             _hover: {
               color: 'var(--tab-text-hover)',
               backgroundColor: { base: '#f8f9fa', md: 'var(--tab-bg-hover)' }

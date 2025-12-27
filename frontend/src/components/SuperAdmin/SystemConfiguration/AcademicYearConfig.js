@@ -359,7 +359,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
       <Box p={0}>
         <Heading
           as="h1"
-          fontSize={{ base: '0.875rem', sm: '0.875rem', md: '1.25rem', lg: '1.25rem', xl: '1.25rem' }}
+          fontSize={{ base: '0.875rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
           fontWeight="600"
           lineHeight="1.3"
           mb={4}
@@ -367,7 +367,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
           Academic Years Management
         </Heading>
         <Text
-          fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.75rem', xl: '0.75rem' }}
+          fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
           color="gray.600"
           lineHeight="1.6"
           mb={4}
