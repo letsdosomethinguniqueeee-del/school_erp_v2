@@ -268,7 +268,7 @@ const SuperAdminDashboard = ({ user }) => {
         <Box
           bg={cardBg}
           borderRadius={{ base: 'md', md: 'lg' }}
-          p={{ base: '10px', sm: '25px' }}
+          p={{ base: '15px', sm: '25px' }}
           mb={{ base: '15px', sm: '30px' }}
           boxShadow="sm"
           border="1px solid"
@@ -276,7 +276,7 @@ const SuperAdminDashboard = ({ user }) => {
           w="100%"
           sx={{
             '@media (max-width: 480px)': {
-              padding: '10px',
+              padding: '15px',
               marginBottom: '15px'
             }
           }}
