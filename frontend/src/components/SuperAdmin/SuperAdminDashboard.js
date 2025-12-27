@@ -143,7 +143,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'user-management',
       title: 'User Management',
-      description: 'Manage all users, roles, and permissions across the system',
+      description: 'Manage users, roles, and permissions',
       icon: 'users',
       color: 'primary',
       action: () => navigate('/super-admin/user-management')
@@ -151,7 +151,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'user-roles',
       title: 'User & Roles',
-      description: 'Manage system users, student records, teacher records, and staff records',
+      description: 'Manage users, students, teachers, and staff',
       icon: 'user-roles',
       color: 'secondary',
       action: () => navigate('/super-admin/user-roles')
@@ -159,7 +159,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'fees-management',
       title: 'Fees Management',
-      description: 'Manage fee structures, student fees, and payment tracking',
+      description: 'Manage fee structures and payments',
       icon: 'dollar-sign',
       color: 'green',
       action: () => navigate('/super-admin/fees-management')
@@ -167,7 +167,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'enhanced-fees-management',
       title: 'Enhanced Fees Management',
-      description: 'Fees management with multi-year tracking, analytics, and bulk operations',
+      description: 'Multi-year tracking and analytics',
       icon: 'dollar-sign',
       color: 'primary',
       action: () => navigate('/super-admin/enhanced-fees-management')
@@ -175,14 +175,14 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'system-settings',
       title: 'System Settings',
-      description: 'Configure global system settings and preferences',
+      description: 'Configure global system settings',
       icon: 'settings',
       color: 'secondary'
     },
     {
       id: 'system-configuration',
       title: 'System Configuration',
-      description: 'Configure academic years, subjects, streams, mediums, classes, and sections',
+      description: 'Configure academic years and classes',
       icon: 'configuration',
       color: 'primary',
       action: () => navigate('/super-admin/system-configuration')
@@ -190,7 +190,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'security',
       title: 'Security & Access',
-      description: 'Manage security policies, authentication, and access controls',
+      description: 'Manage security and access controls',
       icon: 'shield',
       color: 'warning',
       action: () => navigate('/super-admin/security-access')
@@ -198,7 +198,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'examination-result',
       title: 'Examination Result Management',
-      description: 'Manage examination results, student scores, and grade assignments',
+      description: 'Manage exam results and grades',
       icon: 'clipboard',
       color: 'purple',
       action: () => navigate('/super-admin/examination-result-management')
@@ -399,12 +399,12 @@ const SuperAdminDashboard = ({ user }) => {
                         </Heading>
                       </HStack>
                       
-                      {/* Second line: Description centered */}
+                      {/* Second line: Description left-aligned */}
                       <Text
                         fontSize={{ base: '0.75rem', sm: '0.75rem', md: '0.75rem', lg: '1rem', xl: '1rem' }}
                         color={textColor}
                         lineHeight="1.6"
-                        textAlign="center"
+                        textAlign="left"
                         w="full"
                       >
                         {feature.description}
