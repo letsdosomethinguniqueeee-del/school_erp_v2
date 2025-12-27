@@ -557,7 +557,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
       <Box p={0}>
         <Heading
           as="h1"
-          fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
+          size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
           fontWeight="600"
           lineHeight="1.3"
           mb={4}
@@ -607,7 +607,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Add New Class Mapping</ModalHeader>
+          <ModalHeader size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>Add New Class Mapping</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {loadingDropdowns ? (
@@ -619,12 +619,13 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
               <VStack spacing={6}>
                 {/* Class Name Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="add-class-name">Select Class Name</FormLabel>
+                  <FormLabel htmlFor="add-class-name" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Class Name</FormLabel>
                   <Select
                     id="add-class-name"
                     value={formData.className}
                     onChange={(e) => setFormData({ ...formData, className: e.target.value })}
                     placeholder="Choose a class..."
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     {classes.map((cls) => (
                       <option key={cls.value} value={cls.value}>
@@ -636,12 +637,13 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Medium Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="add-medium">Select Medium (Single Selection)</FormLabel>
+                  <FormLabel htmlFor="add-medium" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Medium (Single Selection)</FormLabel>
                   <Select
                     id="add-medium"
                     value={formData.medium}
                     onChange={(e) => setFormData({ ...formData, medium: e.target.value })}
                     placeholder="Choose a medium..."
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     {mediums.map((medium) => (
                       <option key={medium.value} value={medium.value}>
@@ -653,12 +655,13 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Stream Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="add-stream">Select Stream (Single Selection)</FormLabel>
+                  <FormLabel htmlFor="add-stream" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Stream (Single Selection)</FormLabel>
                   <Select
                     id="add-stream"
                     value={formData.stream}
                     onChange={(e) => setFormData({ ...formData, stream: e.target.value })}
                     placeholder="Choose a stream..."
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     {streams.map((stream) => (
                       <option key={stream.value} value={stream.value}>
@@ -670,14 +673,14 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Subjects Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="add-subject-0">Select Subjects (Multiple Selection)</FormLabel>
+                  <FormLabel htmlFor="add-subject-0" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Subjects (Multiple Selection)</FormLabel>
                   <CheckboxGroup
                     value={formData.subjects}
                     onChange={(values) => setFormData({ ...formData, subjects: values })}
                   >
                     <Stack spacing={2}>
                       {subjects.map((subject, index) => (
-                        <Checkbox key={subject.value} value={subject.value} id={`add-subject-${index}`}>
+                        <Checkbox key={subject.value} value={subject.value} id={`add-subject-${index}`} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
                           {subject.label}
                         </Checkbox>
                       ))}
@@ -687,14 +690,14 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Sections Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="add-section-0">Select Sections (Multiple Selection)</FormLabel>
+                  <FormLabel htmlFor="add-section-0" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Sections (Multiple Selection)</FormLabel>
                   <CheckboxGroup
                     value={formData.sections}
                     onChange={(values) => setFormData({ ...formData, sections: values })}
                   >
                     <Stack spacing={2}>
                       {sections.map((section, index) => (
-                        <Checkbox key={section.value} value={section.value} id={`add-section-${index}`}>
+                        <Checkbox key={section.value} value={section.value} id={`add-section-${index}`} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
                           {section.label}
                         </Checkbox>
                       ))}
@@ -704,11 +707,12 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Status */}
                 <FormControl>
-                  <FormLabel htmlFor="add-status">Status</FormLabel>
+                  <FormLabel htmlFor="add-status" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
                   <Select
                     id="add-status"
                     value={formData.isActive}
                     onChange={(e) => setFormData({ ...formData, isActive: e.target.value === 'true' })}
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     <option value={true}>Active</option>
                     <option value={false}>Inactive</option>
@@ -718,7 +722,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose}>
+            <Button variant="ghost" mr={3} onClick={onClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Cancel
             </Button>
             <Button
@@ -727,6 +731,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
               isLoading={submitting}
               loadingText="Creating..."
               isDisabled={loadingDropdowns}
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Add Class Mapping
             </Button>
@@ -745,7 +750,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Edit Class Mapping</ModalHeader>
+          <ModalHeader size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>Edit Class Mapping</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {loadingDropdowns ? (
@@ -757,12 +762,13 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
               <VStack spacing={6}>
                 {/* Class Name Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="edit-class-name">Select Class Name</FormLabel>
+                  <FormLabel htmlFor="edit-class-name" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Class Name</FormLabel>
                 <Select
                     id="edit-class-name"
                     value={editFormData.className}
                     onChange={(e) => setEditFormData({ ...editFormData, className: e.target.value })}
                     placeholder="Choose a class..."
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     {classes.map((cls) => (
                       <option key={cls.value} value={cls.value}>
@@ -774,12 +780,13 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Medium Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="edit-medium">Select Medium (Single Selection)</FormLabel>
+                  <FormLabel htmlFor="edit-medium" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Medium (Single Selection)</FormLabel>
                 <Select
                     id="edit-medium"
                     value={editFormData.medium}
                     onChange={(e) => setEditFormData({ ...editFormData, medium: e.target.value })}
                     placeholder="Choose a medium..."
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     {mediums.map((medium) => (
                       <option key={medium.value} value={medium.value}>
@@ -791,12 +798,13 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 {/* Stream Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="edit-stream">Select Stream (Single Selection)</FormLabel>
+                  <FormLabel htmlFor="edit-stream" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Stream (Single Selection)</FormLabel>
                 <Select
                     id="edit-stream"
                     value={editFormData.stream}
                     onChange={(e) => setEditFormData({ ...editFormData, stream: e.target.value })}
                     placeholder="Choose a stream..."
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     {streams.map((stream) => (
                       <option key={stream.value} value={stream.value}>
@@ -808,45 +816,46 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
             
                 {/* Subjects Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="edit-subject-0">Select Subjects (Multiple Selection)</FormLabel>
-              <CheckboxGroup
+                  <FormLabel htmlFor="edit-subject-0" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Subjects (Multiple Selection)</FormLabel>
+                  <CheckboxGroup
                     value={editFormData.subjects}
                     onChange={(values) => setEditFormData({ ...editFormData, subjects: values })}
                   >
                     <Stack spacing={2}>
                       {subjects.map((subject, index) => (
-                        <Checkbox key={subject.value} value={subject.value} id={`edit-subject-${index}`}>
+                        <Checkbox key={subject.value} value={subject.value} id={`edit-subject-${index}`} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
                           {subject.label}
-                    </Checkbox>
-                  ))}
-                </Stack>
-              </CheckboxGroup>
+                        </Checkbox>
+                      ))}
+                    </Stack>
+                  </CheckboxGroup>
                 </FormControl>
             
                 {/* Sections Selection */}
                 <FormControl isRequired>
-                  <FormLabel htmlFor="edit-section-0">Select Sections (Multiple Selection)</FormLabel>
-              <CheckboxGroup
+                  <FormLabel htmlFor="edit-section-0" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Select Sections (Multiple Selection)</FormLabel>
+                  <CheckboxGroup
                     value={editFormData.sections}
                     onChange={(values) => setEditFormData({ ...editFormData, sections: values })}
                   >
                     <Stack spacing={2}>
                       {sections.map((section, index) => (
-                        <Checkbox key={section.value} value={section.value} id={`edit-section-${index}`}>
+                        <Checkbox key={section.value} value={section.value} id={`edit-section-${index}`} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
                           {section.label}
-                    </Checkbox>
-                  ))}
-                </Stack>
-              </CheckboxGroup>
+                        </Checkbox>
+                      ))}
+                    </Stack>
+                  </CheckboxGroup>
                 </FormControl>
 
                 {/* Status */}
                 <FormControl>
-                  <FormLabel htmlFor="edit-status">Status</FormLabel>
+                  <FormLabel htmlFor="edit-status" fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
                   <Select
                     id="edit-status"
                     value={editFormData.isActive}
                     onChange={(e) => setEditFormData({ ...editFormData, isActive: e.target.value === 'true' })}
+                    size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   >
                     <option value={true}>Active</option>
                     <option value={false}>Inactive</option>
@@ -856,7 +865,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onEditClose}>
+            <Button variant="ghost" mr={3} onClick={onEditClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Cancel
             </Button>
             <Button
@@ -865,6 +874,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
               isLoading={submitting}
               loadingText="Updating..."
               isDisabled={loadingDropdowns}
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Update Class Mapping
             </Button>
@@ -884,7 +894,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="gray.700">Class Mapping Information</Heading>
+            <Heading size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.700">Class Mapping Information</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -892,28 +902,28 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
               <VStack spacing={6} align="stretch">
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">🔗</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Mapping Information</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">🔗</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Mapping Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Class Name</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingClassMapping.className}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Class Name</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingClassMapping.className}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Medium</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingClassMapping.medium}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Medium</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingClassMapping.medium}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Stream</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingClassMapping.stream}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Stream</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingClassMapping.stream}</Text>
             </Box>
             
             <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Subjects</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Subjects</Text>
                       <HStack spacing={2} flexWrap="wrap">
                         {viewingClassMapping.subjects.map((subject, index) => (
                           <Badge
@@ -923,7 +933,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
                             px="8px"
                             py="4px"
                             borderRadius="8px"
-                            fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+                            size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                           >
                             {subject}
                           </Badge>
@@ -932,7 +942,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
             </Box>
             
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Sections</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Sections</Text>
                       <HStack spacing={2} flexWrap="wrap">
                         {viewingClassMapping.sections.map((section, index) => (
                           <Badge
@@ -942,7 +952,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
                             px="8px"
                             py="4px"
                             borderRadius="8px"
-                            fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+                            size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                           >
                             {section}
                           </Badge>
@@ -956,14 +966,14 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📊</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Status Information</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">📊</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Status Information</Text>
                   </HStack>
 
                   <Box>
-                    <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
                     <Text
-                      fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+                      size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                       textTransform="capitalize"
                       color={viewingClassMapping.isActive ? 'green.600' : 'red.600'}
                       fontWeight="500"
@@ -977,14 +987,14 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">⏰</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">⏰</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">
                         {new Date(viewingClassMapping.createdAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -998,8 +1008,8 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
                     </Box>
 
         <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">
                         {new Date(viewingClassMapping.updatedAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -1017,7 +1027,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={onViewClose}>
+            <Button colorScheme="blue" onClick={onViewClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Close
             </Button>
           </ModalFooter>
@@ -1036,35 +1046,35 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="red.600">Delete Class Mapping</Heading>
+            <Heading size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="red.600">Delete Class Mapping</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {deletingClassMapping && (
               <VStack spacing={4} align="stretch">
-                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">
+                <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.700">
                   Are you sure you want to delete this class mapping?
                       </Text>
 
                 <Box p={4} bg="gray.50" borderRadius="md" border="1px solid" borderColor="gray.200">
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Class Name</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="bold" color="blue.600">{deletingClassMapping.className}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Class Name</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">{deletingClassMapping.className}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Medium</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{deletingClassMapping.medium}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Medium</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{deletingClassMapping.medium}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Stream</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{deletingClassMapping.stream}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Stream</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{deletingClassMapping.stream}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={2}>Subjects</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={2}>Subjects</Text>
                       <HStack spacing={2} flexWrap="wrap">
                         {deletingClassMapping.subjects.map((subject, index) => (
                           <Badge
@@ -1083,7 +1093,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={2}>Sections</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={2}>Sections</Text>
                       <HStack spacing={2} flexWrap="wrap">
                         {deletingClassMapping.sections.map((section, index) => (
                           <Badge
@@ -1103,14 +1113,14 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
       </VStack>
     </Box>
 
-                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="red.600" fontWeight="500">
+                <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="red.600" fontWeight="500">
                   This action is permanent and cannot be undone.
                 </Text>
               </VStack>
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting}>
+            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Cancel
             </Button>
             <Button
@@ -1118,6 +1128,7 @@ const ClassMappingConfig = ({ modalType, refreshTrigger }) => {
               onClick={handleDeleteConfirm}
               isLoading={deleting}
               loadingText="Deleting..."
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Delete
             </Button>

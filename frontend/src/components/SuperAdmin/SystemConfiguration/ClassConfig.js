@@ -381,7 +381,7 @@ const ClassConfig = ({ modalType, onDataChange }) => {
       <Box p={0}>
         <Heading
           as="h1"
-          fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
+          size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
           fontWeight="600"
           lineHeight="1.3"
           mb={4}
@@ -431,30 +431,32 @@ const ClassConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Add New Class</ModalHeader>
+          <ModalHeader size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>Add New Class</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel>Class Name</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Class Name</FormLabel>
                 <Input
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   value={formData.className}
                   onChange={(e) => setFormData({ ...formData, className: e.target.value })}
                   placeholder="e.g., LKG, UKG, First Grade"
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Class Order (Number)</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Class Order (Number)</FormLabel>
                 <NumberInput
                   value={formData.classNumber}
                   onChange={(value) => setFormData({ ...formData, classNumber: value })}
                 >
-                  <NumberInputField placeholder="e.g., 0, 1, 2, 3" />
+                  <NumberInputField size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} placeholder="e.g., 0, 1, 2, 3" />
                 </NumberInput>
               </FormControl>
               <FormControl>
-                <FormLabel>Status</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
                 <Select
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   value={formData.isActive}
                   onChange={(e) => setFormData({ ...formData, isActive: e.target.value === 'true' })}
                 >
@@ -465,7 +467,7 @@ const ClassConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose}>
+            <Button variant="ghost" mr={3} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} onClick={onClose}>
               Cancel
             </Button>
             <Button 
@@ -491,30 +493,32 @@ const ClassConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Edit Class</ModalHeader>
+          <ModalHeader size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>Edit Class</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel>Class Name</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Class Name</FormLabel>
                 <Input
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   value={editFormData.className}
                   onChange={(e) => setEditFormData({ ...editFormData, className: e.target.value })}
                   placeholder="e.g., LKG, UKG, First Grade"
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Class Order (Number)</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Class Order (Number)</FormLabel>
                 <NumberInput
                   value={editFormData.classNumber}
                   onChange={(value) => setEditFormData({ ...editFormData, classNumber: value })}
                 >
-                  <NumberInputField placeholder="e.g., 0, 1, 2, 3" />
+                  <NumberInputField size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} placeholder="e.g., 0, 1, 2, 3" />
                 </NumberInput>
               </FormControl>
               <FormControl>
-                <FormLabel>Status</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
                 <Select
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                   value={editFormData.isActive}
                   onChange={(e) => setEditFormData({ ...editFormData, isActive: e.target.value === 'true' })}
                 >
@@ -525,11 +529,12 @@ const ClassConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onEditClose}>
+            <Button variant="ghost" mr={3} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} onClick={onEditClose}>
               Cancel
             </Button>
             <Button
               colorScheme="blue"
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
               onClick={handleEditSubmit}
               isLoading={submitting}
               loadingText="Updating..."
@@ -552,7 +557,7 @@ const ClassConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="gray.700">Class Information</Heading>
+            <Heading size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.700">Class Information</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -560,19 +565,19 @@ const ClassConfig = ({ modalType, onDataChange }) => {
               <VStack spacing={6} align="stretch">
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">🎓</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Basic Information</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">🎓</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Basic Information</Text>
           </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Class Name</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingClass.className}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Class Name</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingClass.className}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Class Order</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingClass.classNumber}</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Class Order</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingClass.classNumber}</Text>
                     </Box>
                   </VStack>
         </Box>
@@ -581,14 +586,14 @@ const ClassConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📊</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Status Information</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">📊</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Status Information</Text>
                   </HStack>
 
         <Box>
-                    <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
                     <Text
-                      fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+                      size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                       textTransform="capitalize"
                       color={viewingClass.isActive ? 'green.600' : 'red.600'}
                       fontWeight="500"
@@ -602,14 +607,14 @@ const ClassConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">⏰</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">⏰</Text>
+                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">
                         {new Date(viewingClass.createdAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -623,8 +628,8 @@ const ClassConfig = ({ modalType, onDataChange }) => {
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
+                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">
                         {new Date(viewingClass.updatedAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -642,7 +647,7 @@ const ClassConfig = ({ modalType, onDataChange }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={onViewClose}>
+            <Button colorScheme="blue" onClick={onViewClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Close
             </Button>
           </ModalFooter>
@@ -661,28 +666,29 @@ const ClassConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="red.600">Delete Class</Heading>
+            <Heading size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="red.600">Delete Class</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {deletingClass && (
               <VStack spacing={4} align="stretch">
-                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">
+                <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.700">
                   Are you sure you want to delete class <Text as="span" fontWeight="bold">{deletingClass.className}</Text>?
                 </Text>
 
-                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="red.600" fontWeight="500">
+                <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="red.600" fontWeight="500">
                   This action is permanent and cannot be undone.
                 </Text>
               </VStack>
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting}>
+            <Button variant="ghost" mr={3} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} onClick={onDeleteClose} isDisabled={deleting}>
               Cancel
             </Button>
             <Button
               colorScheme="red"
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
               onClick={handleDeleteConfirm}
               isLoading={deleting}
               loadingText="Deleting..."

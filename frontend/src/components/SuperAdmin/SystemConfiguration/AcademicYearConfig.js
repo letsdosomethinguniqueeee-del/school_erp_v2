@@ -413,34 +413,38 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel>Year Code</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Year Code</FormLabel>
                 <Input
                   value={formData.yearCode}
                   onChange={(e) => setFormData({ ...formData, yearCode: e.target.value })}
                   placeholder="e.g., 2024-25"
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Start Date</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Start Date</FormLabel>
                 <Input
                   type="date"
                   value={formData.startDate}
                   onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>End Date</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>End Date</FormLabel>
                 <Input
                   type="date"
                   value={formData.endDate}
                   onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Status</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
                 <Select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 >
                   <option value="upcoming">Upcoming</option>
                   <option value="current">Current</option>
@@ -450,7 +454,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose}>
+            <Button variant="ghost" mr={3} onClick={onClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Cancel
             </Button>
             <Button
@@ -458,6 +462,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               onClick={handleSubmit}
               isLoading={submitting}
               loadingText="Creating..."
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Add Academic Year
             </Button>
@@ -480,34 +485,38 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel>Year Code</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Year Code</FormLabel>
                 <Input
                   value={editFormData.yearCode}
                   onChange={(e) => setEditFormData({ ...editFormData, yearCode: e.target.value })}
                   placeholder="e.g., 2024-25"
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Start Date</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Start Date</FormLabel>
                 <Input
                   type="date"
                   value={editFormData.startDate}
                   onChange={(e) => setEditFormData({ ...editFormData, startDate: e.target.value })}
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>End Date</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>End Date</FormLabel>
                 <Input
                   type="date"
                   value={editFormData.endDate}
                   onChange={(e) => setEditFormData({ ...editFormData, endDate: e.target.value })}
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Status</FormLabel>
+                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
                 <Select
                   value={editFormData.status}
                   onChange={(e) => setEditFormData({ ...editFormData, status: e.target.value })}
+                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 >
                   <option value="upcoming">Upcoming</option>
                   <option value="current">Current</option>
@@ -517,7 +526,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onEditClose}>
+            <Button variant="ghost" mr={3} onClick={onEditClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Cancel
             </Button>
             <Button
@@ -525,6 +534,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               onClick={handleEditSubmit}
               isLoading={submitting}
               loadingText="Updating..."
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Update Academic Year
             </Button>
@@ -651,7 +661,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={onViewClose}>
+            <Button colorScheme="blue" onClick={onViewClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Close
             </Button>
           </ModalFooter>
@@ -686,7 +696,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting}>
+            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
               Cancel
             </Button>
             <Button
@@ -694,6 +704,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               onClick={handleDeleteConfirm}
               isLoading={deleting}
               loadingText="Deleting..."
+              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Delete
             </Button>
