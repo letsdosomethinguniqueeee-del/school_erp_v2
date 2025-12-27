@@ -295,7 +295,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
       <Box p={0}>
         <Heading
           as="h1"
-          fontSize={{ base: '0.875rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
+          fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
           fontWeight="600"
           lineHeight="1.3"
           mb={4}
@@ -303,7 +303,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
           Examinations Management
         </Heading>
         <Text
-          fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+          fontSize={{ base: '0.685rem', sm: '0.685rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
           color="gray.600"
           lineHeight="1.6"
           mb={4}
@@ -338,7 +338,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
       <Modal isOpen={isOpen} onClose={onClose} size="md" scrollBehavior='inside' isCentered motionPreset="slideInBottom">
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader>Add New Examination</ModalHeader>
+          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Add New Examination</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
               <VStack spacing={4} align="stretch">
@@ -346,7 +346,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                   <FormLabel>Classes (select one or more)</FormLabel>
                   <CheckboxGroup value={selectedClassIds} onChange={(vals)=>setSelectedClassIds(vals)}>
                     <VStack align="start">
-                      {classes.length === 0 && <Text fontSize="sm" color="gray.500">No classes found.</Text>}
+                      {classes.length === 0 && <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">No classes found.</Text>}
                       {classes.map(cl => (
                         <Checkbox key={cl._id} value={cl._id}>{cl.class_name}</Checkbox>
                       ))}
@@ -358,7 +358,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                   <FormLabel>Mediums (select one or more)</FormLabel>
                   <CheckboxGroup value={selectedMediumIds} onChange={(vals)=>setSelectedMediumIds(vals)}>
                     <VStack align="start">
-                      {mediums.length === 0 && <Text fontSize="sm" color="gray.500">No mediums found.</Text>}
+                      {mediums.length === 0 && <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">No mediums found.</Text>}
                       {mediums.map(md => (
                         <Checkbox key={md._id} value={md._id}>{md.medium_name}</Checkbox>
                       ))}
@@ -389,7 +389,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                     <Button variant="outline" onClick={()=>setExamsList([...examsList, { examName: '', maxMarks: '' }])}>Add another exam</Button>
                   </VStack>
                 </FormControl>
-                <Text fontSize="sm" color="gray.500">Note: Exams will be created with the selected class and medium associations for test mark entries.</Text>
+                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">Note: Exams will be created with the selected class and medium associations for test mark entries.</Text>
               </VStack>
           </ModalBody>
           <ModalFooter>
@@ -403,7 +403,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
       <Modal isOpen={isEditOpen} onClose={onEditClose} size="md" scrollBehavior='inside' isCentered motionPreset="slideInBottom">
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader>Edit Examination</ModalHeader>
+          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Edit Examination</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4} align="stretch">
@@ -428,7 +428,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                 <FormLabel>Classes (select one or more)</FormLabel>
                 <CheckboxGroup value={editFormData.classIds} onChange={(vals)=>setEditFormData({...editFormData, classIds: vals})}>
                   <VStack align="start">
-                    {classes.length === 0 && <Text fontSize="sm" color="gray.500">No classes found.</Text>}
+                    {classes.length === 0 && <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">No classes found.</Text>}
                     {classes.map(cl => (
                       <Checkbox key={cl._id} value={cl._id}>{cl.class_name}</Checkbox>
                     ))}
@@ -440,7 +440,7 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                 <FormLabel>Mediums (select one or more)</FormLabel>
                 <CheckboxGroup value={editFormData.mediumIds} onChange={(vals)=>setEditFormData({...editFormData, mediumIds: vals})}>
                   <VStack align="start">
-                    {mediums.length === 0 && <Text fontSize="sm" color="gray.500">No mediums found.</Text>}
+                    {mediums.length === 0 && <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">No mediums found.</Text>}
                     {mediums.map(md => (
                       <Checkbox key={md._id} value={md._id}>{md.medium_name}</Checkbox>
                     ))}
@@ -460,34 +460,34 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
       <Modal isOpen={isViewOpen} onClose={onViewClose} size="md" scrollBehavior='inside' isCentered motionPreset="slideInBottom">
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader><Heading size="md" color="gray.700">Examination Information</Heading></ModalHeader>
+          <ModalHeader><Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="gray.700">Examination Information</Heading></ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {viewingExam && (
               <VStack spacing={6} align="stretch">
                 <Box>
-                  <HStack spacing={2} mb={4}><Text fontSize="lg" fontWeight="bold" color="blue.600">📅</Text><Text fontSize="lg" fontWeight="bold" color="blue.600">Basic Information</Text></HStack>
+                  <HStack spacing={2} mb={4}><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📅</Text><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Basic Information</Text></HStack>
                   <VStack spacing={3} align="stretch">
-                    <Box><Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Exam Code</Text><Text fontSize="md" color="gray.800">{viewingExam.examCode}</Text></Box>
-                    <Box><Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Exam Name</Text><Text fontSize="md" color="gray.800">{viewingExam.examName}</Text></Box>
-                    <Box><Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Max Marks</Text><Text fontSize="md" color="gray.800">{viewingExam.maxMarks || 100}</Text></Box>
+                    <Box><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Exam Code</Text><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingExam.examCode}</Text></Box>
+                    <Box><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Exam Name</Text><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingExam.examName}</Text></Box>
+                    <Box><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Max Marks</Text><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingExam.maxMarks || 100}</Text></Box>
                   </VStack>
                 </Box>
 
                 <Divider />
 
                 <Box>
-                  <HStack spacing={2} mb={4}><Text fontSize="lg" fontWeight="bold" color="blue.600">🏫</Text><Text fontSize="lg" fontWeight="bold" color="blue.600">Associated Classes</Text></HStack>
+                  <HStack spacing={2} mb={4}><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">🏫</Text><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Associated Classes</Text></HStack>
                   <VStack spacing={2} align="stretch">
                     {(!viewingExam.classIds || viewingExam.classIds.length === 0) && (
-                      <Text fontSize="sm" color="gray.500">No classes associated</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">No classes associated</Text>
                     )}
                     {viewingExam.classIds && viewingExam.classIds.length > 0 && (
                       <VStack align="start" spacing={1}>
                         {viewingExam.classIds.map((classId, idx) => {
                           const classData = classes.find(c => c._id === classId);
                           return (
-                            <Text key={idx} fontSize="sm" color="gray.700">
+                            <Text key={idx} fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">
                               • {classData ? classData.class_name : classId}
                             </Text>
                           );
@@ -500,17 +500,17 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                 <Divider />
 
                 <Box>
-                  <HStack spacing={2} mb={4}><Text fontSize="lg" fontWeight="bold" color="blue.600">🌐</Text><Text fontSize="lg" fontWeight="bold" color="blue.600">Associated Mediums</Text></HStack>
+                  <HStack spacing={2} mb={4}><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">🌐</Text><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Associated Mediums</Text></HStack>
                   <VStack spacing={2} align="stretch">
                     {(!viewingExam.mediumIds || viewingExam.mediumIds.length === 0) && (
-                      <Text fontSize="sm" color="gray.500">No mediums associated</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.500">No mediums associated</Text>
                     )}
                     {viewingExam.mediumIds && viewingExam.mediumIds.length > 0 && (
                       <VStack align="start" spacing={1}>
                         {viewingExam.mediumIds.map((mediumId, idx) => {
                           const mediumData = mediums.find(m => m._id === mediumId);
                           return (
-                            <Text key={idx} fontSize="sm" color="gray.700">
+                            <Text key={idx} fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">
                               • {mediumData ? mediumData.medium_name : mediumId}
                             </Text>
                           );
@@ -521,10 +521,10 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
                 </Box>
                 <Divider />
                 <Box>
-                  <HStack spacing={2} mb={4}><Text fontSize="lg" fontWeight="bold" color="blue.600">⏰</Text><Text fontSize="lg" fontWeight="bold" color="blue.600">Timestamps</Text></HStack>
+                  <HStack spacing={2} mb={4}><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">⏰</Text><Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Timestamps</Text></HStack>
                   <VStack spacing={3} align="stretch">
-                    <Box><Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Created At</Text><Text fontSize="md" color="gray.800">{new Date(viewingExam.createdAt).toLocaleString()}</Text></Box>
-                    <Box><Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Updated At</Text><Text fontSize="md" color="gray.800">{new Date(viewingExam.updatedAt).toLocaleString()}</Text></Box>
+                    <Box><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{new Date(viewingExam.createdAt).toLocaleString()}</Text></Box>
+                    <Box><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{new Date(viewingExam.updatedAt).toLocaleString()}</Text></Box>
                   </VStack>
                 </Box>
               </VStack>
@@ -538,11 +538,11 @@ const ExaminationConfig = ({ modalType, onDataChange }) => {
       <Modal isOpen={isDeleteOpen} onClose={onDeleteClose} size="md" scrollBehavior='inside' isCentered motionPreset="slideInBottom">
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader><Heading size="md" color="red.600">Delete Examination</Heading></ModalHeader>
+          <ModalHeader><Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="red.600">Delete Examination</Heading></ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {deletingExam && (
-              <VStack spacing={4} align="stretch"><Text fontSize="md" color="gray.700">Are you sure you want to delete examination <Text as="span" fontWeight="bold">{deletingExam.examName}</Text>?</Text><Text fontSize="sm" color="red.600" fontWeight="500">This action is permanent and cannot be undone.</Text></VStack>
+              <VStack spacing={4} align="stretch"><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">Are you sure you want to delete examination <Text as="span" fontWeight="bold">{deletingExam.examName}</Text>?</Text><Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="red.600" fontWeight="500">This action is permanent and cannot be undone.</Text></VStack>
             )}
           </ModalBody>
           <ModalFooter>

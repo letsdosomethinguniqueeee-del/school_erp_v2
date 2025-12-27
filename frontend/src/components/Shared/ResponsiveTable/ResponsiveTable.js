@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Table,
   Thead,
@@ -123,6 +123,21 @@ const ResponsiveTable = ({
   const totalPages = Math.ceil(sortedData.length / selectedPageSize);
   const startItem = (currentPage - 1) * selectedPageSize + 1;
   const endItem = Math.min(currentPage * selectedPageSize, sortedData.length);
+
+  // Adjust current page if it becomes empty after data changes (e.g., after deletion)
+  useEffect(() => {
+    if (sortedData.length > 0) {
+      // If current page is beyond available pages, go to last available page
+      if (currentPage > totalPages && totalPages > 0) {
+        setCurrentPage(totalPages);
+      }
+    } else {
+      // If no data, reset to page 1
+      if (currentPage !== 1) {
+        setCurrentPage(1);
+      }
+    }
+  }, [sortedData.length, totalPages, currentPage]);
 
   // Handle sort
   const handleSort = (field) => {

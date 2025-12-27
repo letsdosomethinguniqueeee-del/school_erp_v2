@@ -142,7 +142,7 @@ const SystemConfiguration = ({ user }) => {
             leftIcon={<ArrowBackIcon />} 
             onClick={handleBackToDashboard} 
             colorScheme='gray'
-            fontSize={{ base: '11px', md: 'sm' }}
+            fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
             px={{ base: '10px', md: '16px' }}
             h={{ base: '28px', md: 'auto' }}
           >
@@ -154,7 +154,7 @@ const SystemConfiguration = ({ user }) => {
             colorScheme="blue" 
             leftIcon={<AddIcon />}
             onClick={handleAddNew}
-            fontSize={{ base: '11px', md: 'sm' }}
+            fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
             px={{ base: '10px', md: '16px' }}
             h={{ base: '28px', md: 'auto' }}
           >
@@ -197,7 +197,7 @@ const SystemConfiguration = ({ user }) => {
             backgroundColor: { base: 'transparent', md: 'white' },
             border: { base: 'none', md: '1px solid #e9ecef' },
             mb: '0px',
-            fontSize: { base: '0.875rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' },
+            fontSize: { base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' },
             fontWeight: '600',
             _hover: {
               color: 'var(--tab-text-hover)',

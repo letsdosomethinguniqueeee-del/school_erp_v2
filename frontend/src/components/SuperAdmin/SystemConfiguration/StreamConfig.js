@@ -378,7 +378,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
       <Box p={0}>
         <Heading
           as="h1"
-          fontSize={{ base: '0.875rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
+          fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
           fontWeight="600"
           lineHeight="1.3"
           mb={4}
@@ -386,7 +386,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
           Streams Management
         </Heading>
         <Text
-          fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+          fontSize={{ base: '0.685rem', sm: '0.685rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
           color="gray.600"
           lineHeight="1.6"
           mb={4}
@@ -428,7 +428,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader>Add New Stream</ModalHeader>
+          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Add New Stream</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
@@ -487,7 +487,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader>Edit Stream</ModalHeader>
+          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Edit Stream</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
@@ -547,7 +547,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading size="md" color="gray.700">Stream Information</Heading>
+            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="gray.700">Stream Information</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -555,19 +555,19 @@ const StreamConfig = ({ modalType, onDataChange }) => {
               <VStack spacing={6} align="stretch">
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize="lg" fontWeight="bold" color="blue.600">📚</Text>
-                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Basic Information</Text>
+                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📚</Text>
+                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Basic Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Stream Code</Text>
-                      <Text fontSize="md" color="gray.800">{viewingStream.streamCode}</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Stream Code</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingStream.streamCode}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Stream Name</Text>
-                      <Text fontSize="md" color="gray.800">{viewingStream.streamName}</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Stream Name</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingStream.streamName}</Text>
                     </Box>
                   </VStack>
                 </Box>
@@ -576,14 +576,14 @@ const StreamConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize="lg" fontWeight="bold" color="blue.600">📊</Text>
-                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Status Information</Text>
+                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📊</Text>
+                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Status Information</Text>
                   </HStack>
 
                   <Box>
-                    <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
+                    <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
                     <Text
-                      fontSize="md"
+                      fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
                       textTransform="capitalize"
                       color={viewingStream.isActive ? 'green.600' : 'red.600'}
                       fontWeight="500"
@@ -597,14 +597,14 @@ const StreamConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize="lg" fontWeight="bold" color="blue.600">⏰</Text>
-                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Timestamp Information</Text>
+                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">⏰</Text>
+                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Created At</Text>
-                      <Text fontSize="md" color="gray.800">
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
                         {new Date(viewingStream.createdAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -618,8 +618,8 @@ const StreamConfig = ({ modalType, onDataChange }) => {
                     </Box>
 
                     <Box>
-                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
-                      <Text fontSize="md" color="gray.800">
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
+                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
                         {new Date(viewingStream.updatedAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -656,17 +656,17 @@ const StreamConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading size="md" color="red.600">Delete Stream</Heading>
+            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="red.600">Delete Stream</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {deletingStream && (
               <VStack spacing={4} align="stretch">
-                <Text fontSize="md" color="gray.700">
+                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">
                   Are you sure you want to delete stream <Text as="span" fontWeight="bold">{deletingStream.streamName}</Text>?
                 </Text>
 
-                <Text fontSize="sm" color="red.600" fontWeight="500">
+                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="red.600" fontWeight="500">
                   This action is permanent and cannot be undone.
                 </Text>
               </VStack>
