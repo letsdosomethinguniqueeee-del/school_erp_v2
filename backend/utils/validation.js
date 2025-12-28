@@ -134,14 +134,17 @@ const validateAcademicYear = [
   body('start_date')
     .notEmpty()
     .withMessage('Start date is required')
-    .isISO8601()
     .withMessage('Start date must be a valid date'),
   
   body('end_date')
     .notEmpty()
     .withMessage('End date is required')
     .isISO8601()
-
+    .withMessage('End date must be a valid date'),
+  
+  body('status')
+    .notEmpty()
+    .withMessage('Status is required')
     .isIn(['upcoming', 'current', 'completed'])
     .withMessage('Status must be one of: upcoming, current, completed'),
   
@@ -166,7 +169,11 @@ const validateAcademicYearUpdate = [
     .optional()
     .isISO8601()
     .withMessage('End date must be a valid date'),
-
+  
+  body('status')
+    .optional()
+    .isIn(['upcoming', 'current', 'completed'])
+    .withMessage('Status must be one of: upcoming, current, completed'),
   
   validateRequest
 ];
@@ -512,31 +519,6 @@ const validateClassMappingUpdate = [
   validateRequest
 ];
 
-module.exports = {
-  sanitizeInput,
-  isValidUserId,
-  validateRequest,
-  validateStudent,
-  validateUser,
-  validateLogin,
-  validateAcademicYear,
-  validateAcademicYearUpdate,
-  validateSubject,
-  validateSubjectUpdate,
-  validateStream,
-  validateStreamUpdate,
-  validateMedium,
-  validateMediumUpdate,
-  validateClass,
-  validateClassUpdate,
-  validateSection,
-  validateSectionUpdate,
-  validateClassMapping,
-  validateClassMappingUpdate
-  ,validateExamination
-  ,validateExaminationUpdate
-};
-
 // Examination Data Access validation rules
 const validateExaminationDataAccess = [
   body('academic_year_id')
@@ -601,7 +583,9 @@ const validateExaminationDataAccess = [
   body('subject_ids.*')
     .optional()
     .isMongoId()
-    .withMessage('Invalid subject ID')
+    .withMessage('Invalid subject ID'),
+  
+  validateRequest
 ];
 
 const validateExaminationDataAccessUpdate = [
@@ -668,7 +652,9 @@ const validateExaminationDataAccessUpdate = [
   body('subject_ids.*')
     .optional()
     .isMongoId()
-    .withMessage('Invalid subject ID')
+    .withMessage('Invalid subject ID'),
+  
+  validateRequest
 ];
 
 module.exports = {
