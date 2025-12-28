@@ -25,10 +25,11 @@ const isValidUserId = (userId, role) => {
 const validateRequest = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    const errorArray = errors.array();
     return res.status(400).json({
       status: 'fail',
-      message: 'Validation failed',
-      errors: errors.array()
+      message: errorArray[0].msg || 'Validation failed',
+      errors: errorArray
     });
   }
   next();
