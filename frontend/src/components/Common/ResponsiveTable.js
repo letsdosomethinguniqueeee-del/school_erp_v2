@@ -124,20 +124,19 @@ const ResponsiveTable = ({
   const startItem = (currentPage - 1) * selectedPageSize + 1;
   const endItem = Math.min(currentPage * selectedPageSize, sortedData.length);
 
-  // Adjust current page if it becomes empty after data changes (e.g., after deletion)
+  // Auto-adjust page if current page becomes invalid after data changes
   useEffect(() => {
-    if (sortedData.length > 0) {
-      // If current page is beyond available pages, go to last available page
-      if (currentPage > totalPages && totalPages > 0) {
-        setCurrentPage(totalPages);
-      }
-    } else {
+    // Recalculate total pages based on current data
+    const calculatedTotalPages = Math.ceil(sortedData.length / selectedPageSize);
+    
+    if (calculatedTotalPages > 0 && currentPage > calculatedTotalPages) {
+      // If current page is beyond available pages, go to last page
+      setCurrentPage(calculatedTotalPages);
+    } else if (calculatedTotalPages === 0 && currentPage > 1) {
       // If no data, reset to page 1
-      if (currentPage !== 1) {
-        setCurrentPage(1);
-      }
+      setCurrentPage(1);
     }
-  }, [sortedData.length, totalPages, currentPage]);
+  }, [sortedData.length, selectedPageSize, currentPage, totalPages]);
 
   // Handle sort
   const handleSort = (field) => {
@@ -177,21 +176,7 @@ const ResponsiveTable = ({
   // Render sort icon
   const renderSortIcon = (field) => {
     if (!sortable || sortField !== field) return null;
-    const IconComponent = sortDirection === 'asc' ? ChevronUpIcon : ChevronDownIcon;
-    return (
-      <Box
-        sx={{
-          '@media (max-width: 480px)': {
-            '& svg': {
-              width: '12px !important',
-              height: '12px !important'
-            }
-          }
-        }}
-      >
-        <IconComponent />
-      </Box>
-    );
+    return sortDirection === 'asc' ? <ChevronUpIcon /> : <ChevronDownIcon />;
   };
 
   // Render action buttons
@@ -351,42 +336,8 @@ const ResponsiveTable = ({
           >
             <Box flex="1" minW="200px">
               <InputGroup>
-                <InputLeftElement 
-                  pointerEvents="none"
-                  sx={{
-                    '@media (max-width: 768px)': {
-                      width: '28px !important',
-                      height: '28px !important',
-                      left: '8px !important',
-                      '& svg': {
-                        width: '16px !important',
-                        height: '16px !important'
-                      }
-                    },
-                    '@media (max-width: 480px)': {
-                      width: '24px !important',
-                      height: '24px !important',
-                      left: '6px !important',
-                      '& svg': {
-                        width: '14px !important',
-                        height: '14px !important'
-                      }
-                    }
-                  }}
-                >
-                  <SearchIcon 
-                    color="gray.400"
-                    sx={{
-                      '@media (max-width: 768px)': {
-                        width: '16px !important',
-                        height: '16px !important'
-                      },
-                      '@media (max-width: 480px)': {
-                        width: '14px !important',
-                        height: '14px !important'
-                      }
-                    }}
-                  />
+                <InputLeftElement pointerEvents="none">
+                  <SearchIcon color="gray.400" />
                 </InputLeftElement>
                 <Input
                   placeholder={searchPlaceholder}
@@ -396,17 +347,7 @@ const ResponsiveTable = ({
                   borderColor="gray.300"
                   sx={{
                     paddingLeft: "40px !important",
-                    paddingRight: searchTerm ? "40px !important" : "12px !important",
-                    '@media (max-width: 768px)': {
-                      paddingLeft: "36px !important",
-                      paddingRight: searchTerm ? "36px !important" : "10px !important",
-                      fontSize: "14px !important"
-                    },
-                    '@media (max-width: 480px)': {
-                      paddingLeft: "32px !important",
-                      paddingRight: searchTerm ? "32px !important" : "8px !important",
-                      fontSize: "13px !important"
-                    }
+                    paddingRight: searchTerm ? "40px !important" : "12px !important"
                   }}
                   _hover={{ borderColor: "blue.400" }}
                   _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
@@ -454,24 +395,9 @@ const ResponsiveTable = ({
                   minW={column.minWidth || "120px"}
                   maxW={column.maxWidth || "none"}
                   display="table-cell"
-                  px={{ base: '8px', sm: '12px', md: '16px' }}
-                  py={{ base: '8px', sm: '12px', md: '16px' }}
-                  sx={{
-                    '@media (max-width: 480px)': {
-                      padding: '8px 6px !important'
-                    }
-                  }}
                 >
                   <HStack spacing={2}>
-                    <Text 
-                      fontSize={{ base: '0.625rem', sm: '0.75rem', md: '0.875rem' }} 
-                      fontWeight="600"
-                      sx={{
-                        '@media (max-width: 480px)': {
-                          fontSize: '0.625rem !important'
-                        }
-                      }}
-                    >
+                    <Text fontSize="sm" fontWeight="600">
                       {column.label}
                     </Text>
                     {renderSortIcon(column.key)}
@@ -479,28 +405,8 @@ const ResponsiveTable = ({
                 </Th>
               ))}
               {(onView || onEdit || onDelete) && (
-                <Th 
-                  textAlign="center" 
-                  whiteSpace="nowrap"
-                  sx={{
-                    '@media (max-width: 480px)': {
-                      '& *': {
-                        fontSize: '0.625rem !important'
-                      }
-                    }
-                  }}
-                >
-                  <Text 
-                    fontSize={{ base: '0.625rem', sm: '0.75rem', md: '0.875rem' }}
-                    fontWeight="600"
-                    sx={{
-                      '@media (max-width: 480px)': {
-                        fontSize: '0.625rem !important'
-                      }
-                    }}
-                  >
-                    Actions
-                  </Text>
+                <Th textAlign="center" whiteSpace="nowrap">
+                  Actions
                 </Th>
               )}
             </Tr>
@@ -555,30 +461,28 @@ const ResponsiveTable = ({
 
       {/* Pagination */}
       {showPagination && totalPages > 1 && (
-        <Box p={{ base: 3, sm: 3, md: 4 }} borderTop="1px solid" borderColor={borderColor}>
+        <Box p={4} borderTop="1px solid" borderColor={borderColor}>
           <Flex
             direction={{ base: "column", lg: "row" }}
             justify="space-between"
             align="center"
-            gap={{ base: 2, sm: 3, md: 4 }}
+            gap={4}
           >
             {/* Page Info - Left side on large screens, top on small screens */}
-            <HStack spacing={2} align="center" flexWrap="nowrap" justify={{ base: "center", lg: "start" }}>
+            <HStack spacing={3} align="center" flexWrap="wrap" justify={{ base: "center", lg: "start" }}>
               {showPageSizeSelector && (
-                <HStack spacing={1.5}>
-                  <Text fontSize={{ base: "0.75rem", sm: "0.8125rem", md: "0.875rem" }} whiteSpace="nowrap">Show:</Text>
+                <HStack spacing={2}>
+                  <Text fontSize="sm">Show:</Text>
                   <Select
                     size="sm"
                     value={selectedPageSize}
                     onChange={(e) => handlePageSizeChange(e.target.value)}
-                    width="60px"
-                    fontSize={{ base: "0.75rem", sm: "0.8125rem", md: "0.875rem" }}
-                    height="28px"
+                    width="70px"
                     sx={{
-                      paddingLeft: "6px !important",
-                      paddingRight: "6px !important",
-                      paddingTop: "2px !important",
-                      paddingBottom: "2px !important"
+                      paddingLeft: "8px !important",
+                      paddingRight: "8px !important",
+                      paddingTop: "4px !important",
+                      paddingBottom: "4px !important"
                     }}
                   >
                     <option value={5}>5</option>
@@ -590,11 +494,7 @@ const ResponsiveTable = ({
                 </HStack>
               )}
               {showTotalCount && (
-                <Text 
-                  fontSize={{ base: "0.75rem", sm: "0.8125rem", md: "0.875rem" }} 
-                  color="gray.600"
-                  whiteSpace="nowrap"
-                >
+                <Text fontSize="sm" color="gray.600">
                   Showing {startItem} to {endItem} of {sortedData.length} entries
                 </Text>
               )}

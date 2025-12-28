@@ -22,7 +22,7 @@ import {
   Divider,
   Badge
 } from '@chakra-ui/react';
-import ResponsiveTable from '../../Shared/ResponsiveTable/ResponsiveTable';
+import ResponsiveTable from '../../Common/ResponsiveTable';
 import api from '../../../config/axios';
 import { API_ENDPOINTS } from '../../../constants/api';
 
@@ -355,23 +355,10 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
   };
 
   return (
-    <Box p={0}>
-      <Box p={0}>
-        <Heading
-          as="h1"
-          fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
-          fontWeight="600"
-          lineHeight="1.3"
-          mb={4}
-        >
-          Academic Years Management
-        </Heading>
-        <Text
-          fontSize={{ base: '0.685rem', sm: '0.685rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
-          color="gray.600"
-          lineHeight="1.6"
-          mb={4}
-        >
+    <>
+      <Box>
+        <Heading size="md" mb={4} mt={2}>Academic Years Management</Heading>
+        <Text mb={4} color="gray.600">
           Manage academic years for your school. Add new academic years and manage existing ones.
         </Text>
 
@@ -408,43 +395,39 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Add New Academic Year</ModalHeader>
+          <ModalHeader>Add New Academic Year</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Year Code</FormLabel>
+                <FormLabel>Year Code</FormLabel>
                 <Input
                   value={formData.yearCode}
                   onChange={(e) => setFormData({ ...formData, yearCode: e.target.value })}
                   placeholder="e.g., 2024-25"
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Start Date</FormLabel>
+                <FormLabel>Start Date</FormLabel>
                 <Input
                   type="date"
                   value={formData.startDate}
                   onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>End Date</FormLabel>
+                <FormLabel>End Date</FormLabel>
                 <Input
                   type="date"
                   value={formData.endDate}
                   onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
+                <FormLabel>Status</FormLabel>
                 <Select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 >
                   <option value="upcoming">Upcoming</option>
                   <option value="current">Current</option>
@@ -454,7 +437,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button variant="ghost" mr={3} onClick={onClose}>
               Cancel
             </Button>
             <Button
@@ -462,7 +445,6 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               onClick={handleSubmit}
               isLoading={submitting}
               loadingText="Creating..."
-              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Add Academic Year
             </Button>
@@ -480,43 +462,39 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}>Edit Academic Year</ModalHeader>
+          <ModalHeader>Edit Academic Year</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Year Code</FormLabel>
+                <FormLabel>Year Code</FormLabel>
                 <Input
                   value={editFormData.yearCode}
                   onChange={(e) => setEditFormData({ ...editFormData, yearCode: e.target.value })}
                   placeholder="e.g., 2024-25"
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Start Date</FormLabel>
+                <FormLabel>Start Date</FormLabel>
                 <Input
                   type="date"
                   value={editFormData.startDate}
                   onChange={(e) => setEditFormData({ ...editFormData, startDate: e.target.value })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>End Date</FormLabel>
+                <FormLabel>End Date</FormLabel>
                 <Input
                   type="date"
                   value={editFormData.endDate}
                   onChange={(e) => setEditFormData({ ...editFormData, endDate: e.target.value })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
+                <FormLabel>Status</FormLabel>
                 <Select
                   value={editFormData.status}
                   onChange={(e) => setEditFormData({ ...editFormData, status: e.target.value })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 >
                   <option value="upcoming">Upcoming</option>
                   <option value="current">Current</option>
@@ -526,7 +504,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onEditClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button variant="ghost" mr={3} onClick={onEditClose}>
               Cancel
             </Button>
             <Button
@@ -534,7 +512,6 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               onClick={handleEditSubmit}
               isLoading={submitting}
               loadingText="Updating..."
-              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Update Academic Year
             </Button>
@@ -553,7 +530,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="gray.700">Academic Year Information</Heading>
+            <Heading size="md" color="gray.700">Academic Year Information</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -561,19 +538,19 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               <VStack spacing={6} align="stretch">
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📅</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Basic Information</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">📅</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Basic Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Year Code</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">{viewingAcademicYear.yearCode}</Text>
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Year Code</Text>
+                      <Text fontSize="md" color="gray.800">{viewingAcademicYear.yearCode}</Text>
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Start Date</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Start Date</Text>
+                      <Text fontSize="md" color="gray.800">
                         {new Date(viewingAcademicYear.startDate).toLocaleDateString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -583,8 +560,8 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>End Date</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>End Date</Text>
+                      <Text fontSize="md" color="gray.800">
                         {new Date(viewingAcademicYear.endDate).toLocaleDateString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -599,14 +576,14 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">📊</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Status Information</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">📊</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Status Information</Text>
                   </HStack>
 
                   <Box>
-                    <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
+                    <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
                     <Text
-                      fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
+                      fontSize="md"
                       textTransform="capitalize"
                       color={viewingAcademicYear.status === 'current' ? 'green.600' :
                         viewingAcademicYear.status === 'upcoming' ? 'blue.600' : 'gray.600'}
@@ -621,14 +598,14 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">⏰</Text>
-                    <Text fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">⏰</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Timestamp Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Created At</Text>
+                      <Text fontSize="md" color="gray.800">
                         {new Date(viewingAcademicYear.createdAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -642,8 +619,8 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
                     </Box>
 
                     <Box>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
-                      <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.800">
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
+                      <Text fontSize="md" color="gray.800">
                         {new Date(viewingAcademicYear.updatedAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -661,7 +638,7 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={onViewClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button colorScheme="blue" onClick={onViewClose}>
               Close
             </Button>
           </ModalFooter>
@@ -679,24 +656,24 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }} color="red.600">Delete Academic Year</Heading>
+            <Heading size="md" color="red.600">Delete Academic Year</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {deletingAcademicYear && (
               <VStack spacing={4} align="stretch">
-                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="gray.700">
+                <Text fontSize="md" color="gray.700">
                   Are you sure you want to delete academic year <Text as="span" fontWeight="bold">{deletingAcademicYear.yearCode}</Text>?
                 </Text>
 
-                <Text fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }} color="red.600" fontWeight="500">
+                <Text fontSize="sm" color="red.600" fontWeight="500">
                   This action is permanent and cannot be undone.
                 </Text>
               </VStack>
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting}>
               Cancel
             </Button>
             <Button
@@ -704,14 +681,13 @@ const AcademicYearConfig = ({ modalType, onDataChange }) => {
               onClick={handleDeleteConfirm}
               isLoading={deleting}
               loadingText="Deleting..."
-              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Delete
             </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </Box>
+    </>
   );
 };
 

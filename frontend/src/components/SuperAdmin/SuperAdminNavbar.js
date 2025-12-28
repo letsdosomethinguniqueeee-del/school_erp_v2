@@ -59,17 +59,42 @@ const SuperAdminNavbar = ({ user }) => {
   };
 
   return (
-    <Box
-      as="nav"
-      bg="white"
-      borderBottom="1px solid"
-      borderColor="gray.200"
-      boxShadow="sm"
-      position="sticky"
-      top={0}
-      zIndex={1000}
-      w="100%"
-    >
+    <>
+      <style>
+        {`
+          /* Responsive Logo Styles for Smaller Screens */
+          @media (max-width: 480px) {
+            nav .navbar-logo-box {
+              width: 24px !important;
+              height: 24px !important;
+              min-width: 24px !important;
+              min-height: 24px !important;
+              font-size: 10px !important;
+            }
+          }
+          
+          @media (max-width: 768px) and (min-width: 481px) {
+            nav .navbar-logo-box {
+              width: 32px !important;
+              height: 32px !important;
+              min-width: 32px !important;
+              min-height: 32px !important;
+              font-size: 12px !important;
+            }
+          }
+        `}
+      </style>
+      <Box
+        as="nav"
+        bg="white"
+        borderBottom="1px solid"
+        borderColor="gray.200"
+        boxShadow="sm"
+        position="sticky"
+        top={0}
+        zIndex={1000}
+        w="100%"
+      >
       <Flex
         align="center"
         justify="space-between"
@@ -81,6 +106,7 @@ const SuperAdminNavbar = ({ user }) => {
         <Flex align="center" gap={3}>
           <HStack spacing={3}>
             <Box
+              className="navbar-logo-box"
               w={{ base: 7, sm: 8, md: 10, lg: 12 }}
               h={{ base: 7, sm: 8, md: 10, lg: 12 }}
               bg="blue.600"
@@ -90,7 +116,6 @@ const SuperAdminNavbar = ({ user }) => {
               justifyContent="center"
               color="white"
               fontWeight="bold"
-              fontSize={{ base: '0.625rem', sm: '0.75rem', md: '0.875rem', lg: '1rem' }}
             >
               {SCHOOL_CONFIG.LOGO_TEXT}
             </Box>
@@ -99,13 +124,11 @@ const SuperAdminNavbar = ({ user }) => {
                 size={{ base: 'xs', md: 'sm' }} 
                 color="gray.800" 
                 fontWeight="semibold"
-                fontSize={{ base: '0.65rem', sm: '0.8rem', md: '1rem', lg: '1rem' }}
                 lineHeight="1.2"
               >
                 {SCHOOL_CONFIG.NAME}
               </Heading>
               <Text 
-                fontSize={{ base: '0.625rem', sm: '0.625rem', md: '0.75rem', lg: '0.875rem' }} 
                 color="gray.500"
                 lineHeight="1.2"
               >
@@ -146,21 +169,19 @@ const SuperAdminNavbar = ({ user }) => {
                   justifyContent="center"
                   color="blue.600"
                   fontWeight="bold"
-                  fontSize={{ base: '0.625rem', sm: '0.75rem', md: '0.875rem', lg: '1rem' }}
                   flexShrink={0}
                 >
                   {getRoleName(user?.role).charAt(0)}
                 </Box>
                 <VStack spacing={0} align="start" display={{ base: 'none', md: 'flex' }}>
-                  <Text fontSize={{ md: 'sm', lg: 'md' }} fontWeight="medium" color="gray.700">
+                  <Text fontWeight="medium" color="gray.700">
                     {getRoleName(user?.role)}
                   </Text>
-                  <Text fontSize={{ md: 'xs', lg: 'sm' }} color="gray.500">
+                  <Text color="gray.500">
                     {user?.userId}
                   </Text>
                 </VStack>
                 <Text
-                  fontSize={{ base: '0.65rem', sm: '0.75rem', md: '0.875rem', lg: '1rem' }}
                   fontWeight="medium"
                   color="gray.700"
                   display={{ base: 'block', md: 'none' }}
@@ -174,14 +195,12 @@ const SuperAdminNavbar = ({ user }) => {
             <MenuList>
               <Box px={{ base: 2, md: 3 }} py={{ base: 1.5, md: 2 }}>
                 <Text 
-                  fontSize={{ base: '0.75rem', sm: '0.875rem', md: 'sm', lg: 'md' }} 
                   fontWeight="semibold" 
                   color="gray.700"
                 >
                   {getRoleName(user?.role)}
                 </Text>
                 <Text 
-                  fontSize={{ base: '0.625rem', sm: '0.6875rem', md: 'xs', lg: 'sm' }} 
                   color="gray.500"
                 >
                   ID: {user?.userId}
@@ -209,7 +228,6 @@ const SuperAdminNavbar = ({ user }) => {
                 }}
                 color="red.500"
                 _hover={{ bg: 'red.50' }}
-                fontSize={{ base: '0.75rem', sm: '0.875rem', md: 'sm', lg: 'md' }}
               >
                 Logout
               </MenuItem>
@@ -218,6 +236,7 @@ const SuperAdminNavbar = ({ user }) => {
         </Flex>
       </Flex>
     </Box>
+    </>
   );
 };
 

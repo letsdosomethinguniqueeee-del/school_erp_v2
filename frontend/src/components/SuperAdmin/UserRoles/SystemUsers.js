@@ -26,7 +26,7 @@ import {
   Badge
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import ResponsiveTable from '../../Shared/ResponsiveTable/ResponsiveTable';
+import ResponsiveTable from '../../Common/ResponsiveTable';
 import api from '../../../config/axios';
 import { API_ENDPOINTS } from '../../../constants/api';
 import { ROLE_DISPLAY_NAMES, USER_ROLES } from '../../../constants/roles';

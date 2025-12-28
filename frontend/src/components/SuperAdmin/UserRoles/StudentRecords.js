@@ -30,7 +30,7 @@ import {
   InputRightElement
 } from '@chakra-ui/react';
 import { AddIcon, DeleteIcon } from '@chakra-ui/icons';
-import ResponsiveTable from '../../Shared/ResponsiveTable/ResponsiveTable';
+import ResponsiveTable from '../../Common/ResponsiveTable';
 import api from '../../../config/axios';
 import { API_ENDPOINTS } from '../../../constants/api';
 

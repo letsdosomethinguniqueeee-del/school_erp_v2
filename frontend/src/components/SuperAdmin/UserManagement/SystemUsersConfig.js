@@ -22,7 +22,7 @@ import {
   Divider,
   Badge
 } from '@chakra-ui/react';
-import ResponsiveTable from '../../Shared/ResponsiveTable/ResponsiveTable';
+import ResponsiveTable from '../../Common/ResponsiveTable';
 import api from '../../../config/axios';
 import { API_ENDPOINTS } from '../../../constants/api';
 

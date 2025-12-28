@@ -11,9 +11,6 @@ const SuperAdminFooter = () => {
       bg="gray.900"
       color="white"
       textAlign="center"
-      py={{ base: 2, md: 3 }}
-      px={{ base: 4, md: 6 }}
-      fontSize={{ base: 'xs', md: 'sm' }}
       borderTop="1px solid"
       borderColor="gray.700"
     >

@@ -88,43 +88,6 @@ const SystemConfiguration = ({ user }) => {
             '&::-webkit-scrollbar': {
               display: 'none'
             }
-          },
-          // Responsive button styles
-          '& .chakra-button': {
-            fontSize: { base: '11px', sm: '12px', md: 'sm' },
-            px: { base: '10px', sm: '12px', md: '16px' },
-            py: { base: '6px', sm: '8px', md: '8px' },
-            minH: { base: '28px', md: 'auto' }
-          },
-          // Responsive tab styles
-          '& .chakra-tabs__tab': {
-            fontSize: { base: '11px', sm: '12px', md: 'md' },
-            px: { base: '10px', sm: '12px', md: '16px' },
-            py: { base: '6px', sm: '8px', md: '12px' }
-          },
-          // Responsive input and select styles
-          '& .chakra-input, & .chakra-select': {
-            fontSize: { base: '11px', sm: '12px', md: 'md' },
-            px: { base: '8px', sm: '10px', md: '12px' },
-            py: { base: '6px', sm: '8px', md: '8px' },
-            h: { base: '28px', md: 'auto' }
-          },
-          // Responsive table styles
-          '& .chakra-table th, & .chakra-table td': {
-            fontSize: { base: '11px', sm: '12px', md: 'md' },
-            px: { base: '8px', sm: '10px', md: '12px' },
-            py: { base: '6px', sm: '8px', md: '12px' }
-          },
-          // Responsive modal styles
-          '& .chakra-modal__content': {
-            p: { base: '10px', md: '24px' }
-          },
-          '& .chakra-modal__header': {
-            p: { base: '10px', md: '24px' },
-            fontSize: { base: '13px', md: 'lg' }
-          },
-          '& .chakra-modal__body': {
-            p: { base: '10px', md: '24px' }
           }
         }}
       >
@@ -142,9 +105,6 @@ const SystemConfiguration = ({ user }) => {
             leftIcon={<ArrowBackIcon />} 
             onClick={handleBackToDashboard} 
             colorScheme='gray'
-            fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
-            px={{ base: '10px', md: '16px' }}
-            h={{ base: '28px', md: 'auto' }}
           >
             Back to Dashboard
           </Button>
@@ -154,9 +114,6 @@ const SystemConfiguration = ({ user }) => {
             colorScheme="blue" 
             leftIcon={<AddIcon />}
             onClick={handleAddNew}
-            fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
-            px={{ base: '10px', md: '16px' }}
-            h={{ base: '28px', md: 'auto' }}
           >
             {getAddButtonText()}
           </Button>
@@ -166,6 +123,7 @@ const SystemConfiguration = ({ user }) => {
         variant='soft-rounded' 
         index={activeTab}
         onChange={setActiveTab}
+        mb="0px"
         sx={{
           '& .chakra-tabs__tablist': {
             display: 'flex',
@@ -192,12 +150,9 @@ const SystemConfiguration = ({ user }) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            px: { base: '6px', sm: '9px', md: '16px' },
-            py: { base: '6px', sm: '9px', md: '12px' },
             backgroundColor: { base: 'transparent', md: 'white' },
             border: { base: 'none', md: '1px solid #e9ecef' },
             mb: '0px',
-            fontSize: { base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' },
             fontWeight: '600',
             _hover: {
               color: 'var(--tab-text-hover)',
@@ -253,7 +208,7 @@ const SystemConfiguration = ({ user }) => {
             <CalendarIcon />
           </Tab>
         </TabList>
-        <TabPanels p='0px'>
+        <TabPanels p={0}>
           <TabPanel>
             <AcademicYearConfig modalType={modalType} onDataChange={triggerDropdownRefresh} />
           </TabPanel>

@@ -301,7 +301,6 @@ const SuperAdminDashboard = ({ user }) => {
             {/* Heading */}
             <Heading
               as="h1"
-              fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
               textAlign="center"
               color={headingColor}
               fontWeight="600"
@@ -313,7 +312,6 @@ const SuperAdminDashboard = ({ user }) => {
             
             {/* Description */}
             <Text
-              fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
               textAlign="center"
               color={textColor}
               maxW="2xl"
@@ -395,7 +393,6 @@ const SuperAdminDashboard = ({ user }) => {
                         {/* Title on left after icon */}
                         <Heading
                           as="h3"
-                          fontSize={{ base: '0.75rem', sm: '0.875rem', md: '1rem', lg: '1rem', xl: '1rem' }}
                           color={headingColor}
                           fontWeight="600"
                           lineHeight="1.3"
@@ -407,7 +404,6 @@ const SuperAdminDashboard = ({ user }) => {
                       
                       {/* Second line: Description left-aligned */}
                       <Text
-                        fontSize={{ base: '0.685rem', sm: '0.685rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
                         color={textColor}
                         lineHeight="1.6"
                         textAlign="left"

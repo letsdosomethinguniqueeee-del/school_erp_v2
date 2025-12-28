@@ -23,7 +23,7 @@ import {
   Badge
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import ResponsiveTable from '../../Shared/ResponsiveTable/ResponsiveTable';
+import ResponsiveTable from '../../Common/ResponsiveTable';
 import api from '../../../config/axios';
 import { API_ENDPOINTS } from '../../../constants/api';
 
@@ -375,22 +375,9 @@ const StreamConfig = ({ modalType, onDataChange }) => {
   return (
     <>
       {/* Streams Table */}
-      <Box p={0}>
-        <Heading
-          as="h1"
-          size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
-          fontWeight="600"
-          lineHeight="1.3"
-          mb={4}
-        >
-          Streams Management
-        </Heading>
-        <Text
-          fontSize={{ base: '0.685rem', sm: '0.685rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}
-          color="gray.600"
-          lineHeight="1.6"
-          mb={4}
-        >
+      <Box>
+        <Heading size="md" mb={4} mt={2}>Streams Management</Heading>
+        <Text mb={4} color="gray.600">
           Manage streams for your school. Add new streams and manage existing ones.
         </Text>
         
@@ -428,34 +415,31 @@ const StreamConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>Add New Stream</ModalHeader>
+          <ModalHeader>Add New Stream</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Stream Code</FormLabel>
+                <FormLabel>Stream Code</FormLabel>
                 <Input
                   value={formData.streamCode}
                   onChange={(e) => setFormData({ ...formData, streamCode: e.target.value })}
                   placeholder="e.g., ARTS, COMM, SCI"
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Stream Name</FormLabel>
+                <FormLabel>Stream Name</FormLabel>
                 <Input
                   value={formData.streamName}
                   onChange={(e) => setFormData({ ...formData, streamName: e.target.value })}
                   placeholder="e.g., Arts, Commerce, Science"
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
+                <FormLabel>Status</FormLabel>
                 <Select
                   value={formData.isActive}
                   onChange={(e) => setFormData({ ...formData, isActive: e.target.value === 'true' })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 >
                   <option value={true}>Active</option>
                   <option value={false}>Inactive</option>
@@ -464,7 +448,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button variant="ghost" mr={3} onClick={onClose}>
               Cancel
             </Button>
             <Button
@@ -472,7 +456,6 @@ const StreamConfig = ({ modalType, onDataChange }) => {
               onClick={handleSubmit}
               isLoading={submitting}
               loadingText="Creating..."
-              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Add Stream
             </Button>
@@ -491,34 +474,31 @@ const StreamConfig = ({ modalType, onDataChange }) => {
       >
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
-          <ModalHeader size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>Edit Stream</ModalHeader>
+          <ModalHeader>Edit Stream</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Stream Code</FormLabel>
+                <FormLabel>Stream Code</FormLabel>
                 <Input
                   value={editFormData.streamCode}
                   onChange={(e) => setEditFormData({ ...editFormData, streamCode: e.target.value })}
                   placeholder="e.g., ARTS, COMM, SCI"
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Stream Name</FormLabel>
+                <FormLabel>Stream Name</FormLabel>
                 <Input
                   value={editFormData.streamName}
                   onChange={(e) => setEditFormData({ ...editFormData, streamName: e.target.value })}
                   placeholder="e.g., Arts, Commerce, Science"
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 />
               </FormControl>
               <FormControl>
-                <FormLabel fontSize={{ base: '0.685rem', sm: '0.75rem', md: '0.75rem', lg: '0.825rem', xl: '0.825rem' }}>Status</FormLabel>
+                <FormLabel>Status</FormLabel>
                 <Select
                   value={editFormData.isActive}
                   onChange={(e) => setEditFormData({ ...editFormData, isActive: e.target.value === 'true' })}
-                  size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
                 >
                   <option value={true}>Active</option>
                   <option value={false}>Inactive</option>
@@ -527,7 +507,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onEditClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button variant="ghost" mr={3} onClick={onEditClose}>
               Cancel
             </Button>
             <Button
@@ -535,7 +515,6 @@ const StreamConfig = ({ modalType, onDataChange }) => {
               onClick={handleEditSubmit}
               isLoading={submitting}
               loadingText="Updating..."
-              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Update Stream
             </Button>
@@ -555,7 +534,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.700">Stream Information</Heading>
+            <Heading size="md" color="gray.700">Stream Information</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -563,19 +542,19 @@ const StreamConfig = ({ modalType, onDataChange }) => {
               <VStack spacing={6} align="stretch">
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">📚</Text>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Basic Information</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">📚</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Basic Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Stream Code</Text>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingStream.streamCode}</Text>
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Stream Code</Text>
+                      <Text fontSize="md" color="gray.800">{viewingStream.streamCode}</Text>
                     </Box>
 
                     <Box>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Stream Name</Text>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">{viewingStream.streamName}</Text>
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Stream Name</Text>
+                      <Text fontSize="md" color="gray.800">{viewingStream.streamName}</Text>
                     </Box>
                   </VStack>
                 </Box>
@@ -584,14 +563,14 @@ const StreamConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">📊</Text>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Status Information</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">📊</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Status Information</Text>
                   </HStack>
 
                   <Box>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
+                    <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Current Status</Text>
                     <Text
-                      size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
+                      fontSize="md"
                       textTransform="capitalize"
                       color={viewingStream.isActive ? 'green.600' : 'red.600'}
                       fontWeight="500"
@@ -605,14 +584,14 @@ const StreamConfig = ({ modalType, onDataChange }) => {
 
                 <Box>
                   <HStack spacing={2} mb={4}>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">⏰</Text>
-                    <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="bold" color="blue.600">Timestamp Information</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">⏰</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="blue.600">Timestamp Information</Text>
                   </HStack>
 
                   <VStack spacing={3} align="stretch">
                     <Box>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Created At</Text>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Created At</Text>
+                      <Text fontSize="md" color="gray.800">
                         {new Date(viewingStream.createdAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -626,8 +605,8 @@ const StreamConfig = ({ modalType, onDataChange }) => {
                     </Box>
 
                     <Box>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
-                      <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.800">
+                      <Text fontSize="sm" fontWeight="600" color="gray.600" mb={1}>Updated At</Text>
+                      <Text fontSize="md" color="gray.800">
                         {new Date(viewingStream.updatedAt).toLocaleString('en-IN', {
                           day: '2-digit',
                           month: '2-digit',
@@ -645,7 +624,7 @@ const StreamConfig = ({ modalType, onDataChange }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={onViewClose} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button colorScheme="blue" onClick={onViewClose}>
               Close
             </Button>
           </ModalFooter>
@@ -664,24 +643,24 @@ const StreamConfig = ({ modalType, onDataChange }) => {
         <ModalOverlay />
         <ModalContent mx={4} my={16}>
           <ModalHeader>
-            <Heading size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="red.600">Delete Stream</Heading>
+            <Heading size="md" color="red.600">Delete Stream</Heading>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {deletingStream && (
               <VStack spacing={4} align="stretch">
-                <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="gray.700">
+                <Text fontSize="md" color="gray.700">
                   Are you sure you want to delete stream <Text as="span" fontWeight="bold">{deletingStream.streamName}</Text>?
                 </Text>
 
-                <Text size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }} color="red.600" fontWeight="500">
+                <Text fontSize="sm" color="red.600" fontWeight="500">
                   This action is permanent and cannot be undone.
                 </Text>
               </VStack>
             )}
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting} size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}>
+            <Button variant="ghost" mr={3} onClick={onDeleteClose} isDisabled={deleting}>
               Cancel
             </Button>
             <Button
@@ -689,7 +668,6 @@ const StreamConfig = ({ modalType, onDataChange }) => {
               onClick={handleDeleteConfirm}
               isLoading={deleting}
               loadingText="Deleting..."
-              size={{ base: 'xs', sm: 'sm', md: 'md', lg: 'md' }}
             >
               Delete
             </Button>
