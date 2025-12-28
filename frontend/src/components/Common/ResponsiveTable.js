@@ -22,7 +22,8 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement
+  InputRightElement,
+  Spinner
 } from '@chakra-ui/react';
 import {
   ChevronLeftIcon,
@@ -415,7 +416,9 @@ const ResponsiveTable = ({
             {loading ? (
               <Tr>
                 <Td colSpan={columns.length + (onView || onEdit || onDelete ? 1 : 0)} textAlign="center" py={8}>
-                  <Text>Loading...</Text>
+                  <Flex justify="center" align="center">
+                    <Spinner size="sm" color="blue.500" thickness="2px" />
+                  </Flex>
                 </Td>
               </Tr>
             ) : paginatedData.length === 0 ? (
