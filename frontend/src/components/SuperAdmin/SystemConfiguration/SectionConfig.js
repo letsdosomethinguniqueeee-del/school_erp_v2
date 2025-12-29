@@ -73,7 +73,7 @@ const SectionConfig = ({ modalType, onDataChange }) => {
         // Transform backend data to frontend format
         const transformedData = response.data.data.map(item => ({
           id: item._id,
-          sectionName: item.section_name.replace('Section ', ''), // Remove "Section " prefix for display
+          sectionName: item.section_name, // Remove "Section " prefix for display
           sectionNumber: item.section_order,
           isActive: item.is_active,
           createdAt: item.createdAt,
