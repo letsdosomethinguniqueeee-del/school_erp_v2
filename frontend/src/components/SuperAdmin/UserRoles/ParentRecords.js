@@ -3,8 +3,8 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 
 const ParentRecords = ({ modalType, onDataChange }) => {
   return (
-    <Box p={4}>
-      <Heading size="md" mb={4}>Parent Records</Heading>
+    <Box>
+      <Heading size="md" mb={4} mt={2}>Parent Records</Heading>
       <Text mb={4} color="gray.600">
         Manage parent profiles, student associations, and contact information.
       </Text>
@@ -24,4 +24,3 @@ const ParentRecords = ({ modalType, onDataChange }) => {
 };
 
 export default ParentRecords;
-

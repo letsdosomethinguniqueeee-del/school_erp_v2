@@ -3,8 +3,8 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 
 const StaffRecords = ({ modalType, onDataChange }) => {
   return (
-    <Box p={4}>
-      <Heading size="md" mb={4}>Staff Records</Heading>
+    <Box>
+      <Heading size="md" mb={4} mt={2}>Staff Records</Heading>
       <Text mb={4} color="gray.600">
         Manage non-teaching staff members and their roles in the school.
       </Text>
@@ -24,4 +24,3 @@ const StaffRecords = ({ modalType, onDataChange }) => {
 };
 
 export default StaffRecords;
-

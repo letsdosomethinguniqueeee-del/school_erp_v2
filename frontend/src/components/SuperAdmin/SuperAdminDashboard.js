@@ -151,7 +151,7 @@ const SuperAdminDashboard = ({ user }) => {
     {
       id: 'user-roles',
       title: 'User & Roles',
-      description: 'Manage users, students, teachers, and staff',
+      description: 'Manage system users, student records, teacher records, staff records, and parent records',
       icon: 'user-roles',
       color: 'secondary',
       action: () => navigate('/super-admin/user-roles')

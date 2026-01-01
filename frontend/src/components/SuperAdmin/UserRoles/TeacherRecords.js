@@ -3,8 +3,8 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 
 const TeacherRecords = ({ modalType, onDataChange }) => {
   return (
-    <Box p={4}>
-      <Heading size="md" mb={4}>Teacher Records</Heading>
+    <Box>
+      <Heading size="md" mb={4} mt={2}>Teacher Records</Heading>
       <Text mb={4} color="gray.600">
         Manage teacher profiles, subject assignments, and teaching schedules.
       </Text>
@@ -24,4 +24,3 @@ const TeacherRecords = ({ modalType, onDataChange }) => {
 };
 
 export default TeacherRecords;
-

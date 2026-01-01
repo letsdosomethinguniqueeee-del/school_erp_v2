@@ -737,8 +737,8 @@ const SystemUsers = ({ modalType, refreshTrigger }) => {
 
   return (
     <>
-      <Box p={4}>
-        <Heading size="md" mb={4}>System Users Management</Heading>
+    <Box>
+      <Heading size="md" mb={4} mt={2}>System Users Management</Heading>
         <Text mb={4} color="gray.600">
           Manage all users in the system - Super Admins, Admins, Students, Parents, Teachers, and Staff with full access control.
         </Text>

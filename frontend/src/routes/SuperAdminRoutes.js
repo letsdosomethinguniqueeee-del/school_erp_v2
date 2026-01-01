@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import SuperAdminDashboard from '../components/SuperAdmin/SuperAdminDashboard';
 import UserManagement from '../components/SuperAdmin/UserManagement/UserManagement';
-import UserRoles from '../components/SuperAdmin/UserManagement/UserRoles';
+import UserRoles from '../components/SuperAdmin/UserRoles/User&Roles';
 import FeesManagement from '../components/SuperAdmin/FeesManagement/FeesManagement';
 import EnhancedFeesManagement from '../components/SuperAdmin/FeesManagement/EnhancedFeesManagement';
 import SystemConfiguration from '../components/SuperAdmin/SystemConfiguration/SystemConfiguration';

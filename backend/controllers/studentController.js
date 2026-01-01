@@ -28,7 +28,7 @@ exports.checkRollNumberUniqueness = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('Error checking roll number uniqueness:', error);
+    logger.error('Error checking roll number uniqueness:', error);
     res.status(500).json({
       status: 'error',
       message: 'Internal server error'
@@ -43,16 +43,10 @@ exports.getAllStudents = async (req, res) => {
     const skip = (page - 1) * limit;
     const search = req.query.search;
     const classFilter = req.query.class;
-    const sectionFilter = req.query.section;
-    const class_id = req.query.class_id;
-    const section_id = req.query.section_id;
-    const medium_id = req.query.medium_id;
-    const academic_year_id = req.query.academic_year_id;
 
     console.log('=== GET ALL STUDENTS API CALL ===');
     console.log('Query parameters:', req.query);
     console.log('Class filter:', classFilter);
-    console.log('Section filter:', sectionFilter);
     console.log('Search term:', search);
 
     // Build query object
@@ -76,38 +70,11 @@ exports.getAllStudents = async (req, res) => {
       console.log('Applied class filter:', classFilter);
     }
 
-    // Add section filter
-    if (sectionFilter && sectionFilter !== 'all') {
-      query.currentSection = sectionFilter;
-      console.log('Applied section filter:', sectionFilter);
-    }
-
-    // Support filtering by ObjectIds (for marks entry)
-    if (class_id) {
-      query.currentStudyClass = class_id;
-    }
-
-    if (section_id) {
-      query.currentSection = section_id;
-    }
-
-    if (medium_id) {
-      query.medium = medium_id;
-    }
-
-    if (academic_year_id) {
-      query.admissionYear = academic_year_id;
-    }
-
     console.log('Final query object:', JSON.stringify(query, null, 2));
 
     // Optimized query with lean(), proper sorting, and field selection
     const students = await Student.find(query)
-      .select('studentId rollNo firstName middleName lastName govtProvidedId fatherFirstName fatherMiddleName fatherLastName fatherMobile motherFirstName motherMiddleName motherLastName motherMobile parent1Id parent1Relation parent2Id parent2Relation gender dateOfBirth category community nationality bloodGroup aadharCardNo contactNo additionalContactNo email admissionYear currentStudyClass currentSection medium concessionPercentage concessionReason pic')
-      .populate('admissionYear', 'year_code')
-      .populate('currentStudyClass', 'class_name')
-      .populate('currentSection', 'section_name')
-      .populate('medium', 'medium_name')
+      .select('studentId rollNo firstName middleName lastName govtProvidedId fatherFirstName fatherMiddleName fatherLastName fatherMobile motherFirstName motherMiddleName motherLastName motherMobile parent1Id parent1Relation parent2Id parent2Relation gender dateOfBirth category community nationality bloodGroup aadharCardNo contactNo additionalContactNo email admissionYear currentStudyClass currentSection currentMedium currentStream currentAcademicYear subjects concessions concessionPercentage concessionReason pic')
       .sort({ studentId: 1 }) // Sort by studentId for consistent ordering
       .lean() // Use lean() for better performance
       .skip(skip)
@@ -133,19 +100,14 @@ exports.getAllStudents = async (req, res) => {
         data: students 
       });
   } catch (err) {
-    console.error('Error fetching students:', err);
+    logger.error('Error fetching students:', err);
     res.status(500).json({ status: 'error', message: err.message });
   }
 };
 
 exports.getStudentById = async (req, res) => {
   try {
-    const student = await Student.findById(req.params.id)
-      .populate('admissionYear', 'year_code')
-      .populate('currentStudyClass', 'class_name')
-      .populate('currentSection', 'section_name')
-      .populate('medium', 'medium_name')
-      .lean();
+    const student = await Student.findById(req.params.id).lean();
     if (!student)
       return res
         .status(404)

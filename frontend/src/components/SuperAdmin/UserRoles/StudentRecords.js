@@ -235,6 +235,9 @@ const StudentRecords = ({ modalType, onDataChange }) => {
           const fatherFullName = `${item.fatherFirstName || ''} ${item.fatherMiddleName || ''} ${item.fatherLastName || ''}`.trim() || 'N/A';
           const motherFullName = `${item.motherFirstName || ''} ${item.motherMiddleName || ''} ${item.motherLastName || ''}`.trim() || 'N/A';
 
+          // Build full name for display
+          const fullName = `${item.firstName || ''} ${item.middleName || ''} ${item.lastName || ''}`.trim() || 'N/A';
+
           return {
             id: item._id,
             // 1. Basic Information
@@ -242,6 +245,7 @@ const StudentRecords = ({ modalType, onDataChange }) => {
             firstName: item.firstName || 'N/A',
             middleName: item.middleName || 'N/A',
             lastName: item.lastName || 'N/A',
+            fullName: fullName, // Combined name for table display
             rollNo: item.rollNo,
             govtProvidedId: item.govtProvidedId || 'N/A',
 
@@ -300,39 +304,13 @@ const StudentRecords = ({ modalType, onDataChange }) => {
       }
     } catch (error) {
       console.error('Error fetching students:', error);
-      if (error.response?.status === 401) {
-        toast({
-          title: 'Authentication Required',
-          description: 'Your session has expired. Please log in again.',
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        });
-      } else if (error.response?.status === 403) {
-        toast({
-          title: 'Access Denied',
-          description: 'You do not have permission to access student records',
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        });
-      } else if (error.code === 'NETWORK_ERROR' || !error.response) {
-        toast({
-          title: 'Connection Error',
-          description: 'Unable to connect to server. Please check your internet connection.',
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        });
-      } else {
-        toast({
-          title: 'Error',
-          description: error.response?.data?.message || 'Failed to fetch student records',
-          status: 'error',
-          duration: 3000,
-          isClosable: true,
-        });
-      }
+      toast({
+        title: 'Error',
+        description: error.response?.data?.message || error.message || 'Failed to fetch student records',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
     } finally {
       if (showLoading) setLoading(false);
     }
@@ -441,32 +419,18 @@ const StudentRecords = ({ modalType, onDataChange }) => {
     }
   }, [modalType, onOpen]);
 
-  // Table columns - Based on your exact field list
+  // Table columns - Simplified view with only essential information
   const columns = useMemo(() => [
-    // 1. Basic Info
     {
-      key: 'studentId',
-      label: 'Student ID',
+      key: 'fullName',
+      label: 'Name',
       sortable: true,
-      minWidth: '120px',
-    },
-    {
-      key: 'firstName',
-      label: 'First Name',
-      sortable: true,
-      minWidth: '120px',
-    },
-    {
-      key: 'middleName',
-      label: 'Middle Name',
-      sortable: true,
-      minWidth: '120px',
-    },
-    {
-      key: 'lastName',
-      label: 'Last Name',
-      sortable: true,
-      minWidth: '120px',
+      minWidth: '200px',
+      render: (value, row) => {
+        // Combine firstName, middleName, and lastName for display
+        const name = `${row.firstName || ''} ${row.middleName || ''} ${row.lastName || ''}`.trim();
+        return <Text fontWeight="medium">{name || 'N/A'}</Text>;
+      },
     },
     {
       key: 'rollNo',
@@ -474,68 +438,6 @@ const StudentRecords = ({ modalType, onDataChange }) => {
       sortable: true,
       minWidth: '100px',
     },
-    {
-      key: 'govtProvidedId',
-      label: 'Govt Provided ID',
-      sortable: true,
-      minWidth: '140px',
-    },
-
-    // 2. Father's Details
-    {
-      key: 'fatherFullName',
-      label: 'Father Full Name',
-      sortable: true,
-      minWidth: '150px',
-    },
-    {
-      key: 'fatherMobile',
-      label: 'Father Mobile',
-      sortable: true,
-      minWidth: '130px',
-    },
-
-    // 3. Mother's Details
-    {
-      key: 'motherFullName',
-      label: 'Mother Full Name',
-      sortable: true,
-      minWidth: '150px',
-    },
-    {
-      key: 'motherMobile',
-      label: 'Mother Mobile',
-      sortable: true,
-      minWidth: '130px',
-    },
-
-    // 4. Parent/Guardian Relations
-    {
-      key: 'parent1Id',
-      label: 'Parent 1 ID',
-      sortable: true,
-      minWidth: '120px',
-    },
-    {
-      key: 'parent1Relation',
-      label: 'Parent 1 Relation',
-      sortable: true,
-      minWidth: '140px',
-    },
-    {
-      key: 'parent2Id',
-      label: 'Parent 2 ID',
-      sortable: true,
-      minWidth: '120px',
-    },
-    {
-      key: 'parent2Relation',
-      label: 'Parent 2 Relation',
-      sortable: true,
-      minWidth: '140px',
-    },
-
-    // 5. Personal Details
     {
       key: 'gender',
       label: 'Gender',
@@ -548,73 +450,8 @@ const StudentRecords = ({ modalType, onDataChange }) => {
       ),
     },
     {
-      key: 'dateOfBirth',
-      label: 'Date of Birth',
-      sortable: true,
-      type: 'date',
-      minWidth: '120px',
-    },
-    {
-      key: 'category',
-      label: 'Category',
-      sortable: true,
-      minWidth: '100px',
-    },
-    {
-      key: 'community',
-      label: 'Community',
-      sortable: true,
-      minWidth: '110px',
-    },
-    {
-      key: 'nationality',
-      label: 'Nationality',
-      sortable: true,
-      minWidth: '110px',
-    },
-    {
-      key: 'bloodGroup',
-      label: 'Blood Group',
-      sortable: true,
-      minWidth: '110px',
-    },
-
-    // 6. Contact Information
-    {
-      key: 'aadharCardNo',
-      label: 'Aadhar Card No',
-      sortable: true,
-      minWidth: '140px',
-    },
-    {
-      key: 'contactNo',
-      label: 'Contact No',
-      sortable: true,
-      minWidth: '120px',
-    },
-    {
-      key: 'additionalContactNo',
-      label: 'Additional Contact',
-      sortable: true,
-      minWidth: '150px',
-    },
-    {
-      key: 'email',
-      label: 'Email',
-      sortable: true,
-      minWidth: '180px',
-    },
-
-    // 7. Academic Information
-    {
       key: 'admissionYear',
       label: 'Admission Year',
-      sortable: true,
-      minWidth: '130px',
-    },
-    {
-      key: 'currentAcademicYear',
-      label: 'Academic Year',
       sortable: true,
       minWidth: '130px',
     },
@@ -623,48 +460,6 @@ const StudentRecords = ({ modalType, onDataChange }) => {
       label: 'Current Class',
       sortable: true,
       minWidth: '120px',
-    },
-    {
-      key: 'currentSection',
-      label: 'Current Section',
-      sortable: true,
-      minWidth: '130px',
-    },
-    {
-      key: 'currentMedium',
-      label: 'Current Medium',
-      sortable: true,
-      minWidth: '130px',
-    },
-    {
-      key: 'currentStream',
-      label: 'Current Stream',
-      sortable: true,
-      minWidth: '130px',
-    },
-    {
-      key: 'subjectsCount',
-      label: 'Subjects',
-      sortable: true,
-      minWidth: '100px',
-      render: (value) => (
-        <Badge colorScheme="purple">
-          {value} {value === 1 ? 'Subject' : 'Subjects'}
-        </Badge>
-      ),
-    },
-
-    // 8. Concession Array (Current Year - Full history available in View Modal)
-    {
-      key: 'currentConcessionPercentage',
-      label: 'Concession %',
-      sortable: true,
-      minWidth: '120px',
-      render: (value) => (
-        <Badge colorScheme={value > 0 ? 'green' : 'gray'}>
-          {value > 0 ? `${value}%` : 'No Concession'}
-        </Badge>
-      ),
     },
   ], []);
 
@@ -821,6 +616,7 @@ const StudentRecords = ({ modalType, onDataChange }) => {
       };
 
       const response = await api.post(API_ENDPOINTS.STUDENTS, studentData);
+      console.log(response);
 
       if (response.data.status === 'success') {
         await fetchStudents();
@@ -954,7 +750,7 @@ const StudentRecords = ({ modalType, onDataChange }) => {
       contactNo: student.contactNo || '',
       additionalContactNo: student.additionalContactNo || '',
       email: student.email || '',
-      admissionYear: student.admissionYear || new Date().getFullYear(),
+      admissionYear: typeof student.admissionYear === 'number' ? student.admissionYear : (student.admissionYear || new Date().getFullYear()),
       currentAcademicYear: student.currentAcademicYear || '',
       currentStudyClass: student.currentStudyClass || '',
       currentSection: student.currentSection || '',
@@ -2075,8 +1871,8 @@ const StudentRecords = ({ modalType, onDataChange }) => {
 
   return (
     <>
-      <Box p={4}>
-        <Heading size="md" mb={4}>Student Records</Heading>
+      <Box>
+        <Heading size="md" mb={4} mt={2}>Student Records</Heading>
         <Text mb={4} color="gray.600">
           View and manage student information, academic records, and enrollment details.
         </Text>
@@ -2094,7 +1890,7 @@ const StudentRecords = ({ modalType, onDataChange }) => {
           sortable={true}
           searchable={true}
           searchPlaceholder="Search by student ID, name, roll no..."
-          searchFields={['studentId', 'name', 'rollNo']}
+          searchFields={['fullName', 'firstName', 'middleName', 'lastName', 'rollNo', 'studentId']}
           loading={loading}
           emptyMessage={loading ? "Loading student records..." : "No student records found. Click 'Add New Student Record' to create one."}
           maxHeight="500px"

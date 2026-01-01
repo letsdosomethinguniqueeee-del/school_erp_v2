@@ -6,7 +6,10 @@ import {
   TabPanels, 
   Tab, 
   TabPanel,
-  Button
+  Button,
+  Box,
+  Flex,
+  VStack
 } from '@chakra-ui/react';
 import { 
   ArrowBackIcon,
@@ -16,14 +19,15 @@ import {
   ViewIcon,
   PhoneIcon
 } from '@chakra-ui/icons';
+import SuperAdminNavbar from '../SuperAdminNavbar';
+import SuperAdminFooter from '../SuperAdminFooter';
 import SystemUsers from './SystemUsers';
 import StudentRecords from './StudentRecords';
 import TeacherRecords from './TeacherRecords';
 import StaffRecords from './StaffRecords';
 import ParentRecords from './ParentRecords';
-import './UserRoles.css';
 
-const UserRoles = () => {
+const UserRoles = ({ user }) => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(0);
   const [modalType, setModalType] = useState('');
@@ -61,125 +65,141 @@ const UserRoles = () => {
   };
 
   return (
-    <>
-      <div className="user-roles-header">
-        <div className="user-roles-header-left">
-          <Button leftIcon={<ArrowBackIcon />} onClick={handleBackToDashboard} colorScheme='gray'>
-            Back to Dashboard
-          </Button>
-        </div>
-        <div className="user-roles-header-right">
-          <Button 
-            colorScheme="blue" 
-            leftIcon={<AddIcon />}
-            onClick={handleAddNew}
-          >
-            {getAddButtonText()}
-          </Button>
-        </div>
-      </div>
-      <Tabs 
-        variant='soft-rounded' 
-        index={activeTab}
-        onChange={setActiveTab}
+    <VStack spacing={0} align="stretch" minH="100vh">
+      {/* Navbar */}
+      <SuperAdminNavbar user={user} />
+      
+      {/* Main Content */}
+      <Box
+        flex="1"
         sx={{
-          '& .chakra-tabs__tablist': {
-            display: 'flex !important',
-            background: '#f8f9fa !important',
-            borderRadius: '8px !important',
-            padding: '6px !important',
-            border: '1px solid #e9ecef !important',
-            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1) !important',
-            marginTop: '12px',
-            flexWrap: 'wrap',
-            gap: '8px',
-            margin: '10px 20px'
-          },
-          '& .chakra-tabs__tab': {
-            color: 'var(--tab-text-default)',
-            borderColor: 'var(--tab-blue)',
-            borderRadius: '6px',
-            transition: 'all 0.02s ease',
-            flex: '1 1 auto',
-            minWidth: '250px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '12px 16px',
-            backgroundColor: 'white',
-            border: '1px solid #e9ecef'
-          },
-          '& .chakra-tabs__tab:hover': {
-            color: 'var(--tab-text-hover)',
-            backgroundColor: 'var(--tab-bg-hover)'
-          },
-          '& .chakra-tabs__tab[aria-selected="true"]': {
-            backgroundColor: 'var(--tab-blue)',
-            color: 'var(--tab-text-selected)',
-            borderRadius: '6px'
-          },
-          // Responsive behavior for smaller screens
-          '@media (max-width: 768px)': {
+          // Hide scrollbar for all browsers within UserRoles
+          '& *': {
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none'
+            }
+          }
+        }}
+      >
+        <Flex
+          mt="15px"
+          px={{ base: '10px', md: '20px' }}
+          py="10px"
+          justify="space-between"
+          align="center"
+          flexWrap={{ base: 'wrap', md: 'nowrap' }}
+          gap={{ base: '10px', md: '0' }}
+        >
+          <Box>
+            <Button 
+              leftIcon={<ArrowBackIcon />} 
+              onClick={handleBackToDashboard} 
+              colorScheme='gray'
+            >
+              Back to Dashboard
+            </Button>
+          </Box>
+          <Box>
+            <Button 
+              colorScheme="blue" 
+              leftIcon={<AddIcon />}
+              onClick={handleAddNew}
+            >
+              {getAddButtonText()}
+            </Button>
+          </Box>
+        </Flex>
+        <Tabs 
+          variant='soft-rounded' 
+          index={activeTab}
+          onChange={setActiveTab}
+          mb="0px"
+          sx={{
             '& .chakra-tabs__tablist': {
-              flexDirection: 'column',
-              gap: '8px',
-              background: 'white',
+              display: 'flex',
+              background: '#f8f9fa',
               borderRadius: '8px',
-              padding: '12px',
+              p: { base: '6px', sm: '6px', md: '6px' },
+              border: '1px solid #e9ecef',
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-              border: '1px solid #e9ecef'
+              mt: '12px',
+              mb: '0px',
+              flexWrap: { base: 'wrap', md: 'wrap' },
+              gap: '8px',
+              mx: { base: '10px', md: '20px' },
+              flexDirection: { base: 'column', md: 'row' }
             },
             '& .chakra-tabs__tab': {
-              width: '100%',
-              minWidth: 'unset',
-              marginBottom: '0px',
+              color: 'var(--tab-text-default)',
+              borderColor: 'var(--tab-blue)',
               borderRadius: '6px',
-              backgroundColor: 'transparent',
-              border: 'none',
+              transition: 'all 0s ease',
+              flex: { base: 'none', md: '1 1 auto' },
+              minWidth: { base: '100%', md: '250px' },
+              width: { base: '100%', md: 'auto' },
+              display: 'flex',
               justifyContent: 'space-between',
-              padding: '12px 16px',
-              '&:hover': {
-                backgroundColor: '#f8f9fa'
+              alignItems: 'center',
+              backgroundColor: { base: 'transparent', md: 'white' },
+              border: { base: 'none', md: '1px solid #e9ecef' },
+              mb: '0px',
+              fontWeight: '600',
+              _hover: {
+                color: 'var(--tab-text-hover)',
+                backgroundColor: { base: '#f8f9fa', md: 'var(--tab-bg-hover)' }
               }
             },
             '& .chakra-tabs__tab[aria-selected="true"]': {
               backgroundColor: 'var(--tab-blue)',
               color: 'white',
               borderRadius: '6px'
+            },
+            '& .chakra-tabs__tab-panels': {
+              px: { base: '10px', md: '20px' }
+            },
+            '& .chakra-tabs__tabpanel': {
+              px: { base: '10px', md: '20px' },
+              pt: { base: '12px', md: '16px' },
+              pb: 0
             }
-          }
-        }}
-      >
-        <TabList mb='1em'>
-          {tabConfig.map((tab, index) => {
-            const IconComponent = tab.icon;
-            return (
-              <Tab key={tab.id}>
-                <span>{tab.label}</span>
-                <IconComponent />
-              </Tab>
-            );
-          })}
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <SystemUsers modalType={modalType} refreshTrigger={refreshTrigger} />
-          </TabPanel>
-          <TabPanel>
-            <StudentRecords modalType={modalType} onDataChange={triggerRefresh} />
-          </TabPanel>
-          <TabPanel>
-            <TeacherRecords modalType={modalType} onDataChange={triggerRefresh} />
-          </TabPanel>
-          <TabPanel>
-            <StaffRecords modalType={modalType} onDataChange={triggerRefresh} />
-          </TabPanel>
-          <TabPanel>
-            <ParentRecords modalType={modalType} onDataChange={triggerRefresh} />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </>
+          }}
+        >
+          <TabList mb='0px'>
+            {tabConfig.map((tab) => {
+              const IconComponent = tab.icon;
+              return (
+                <Tab key={tab.id}>
+                  <span>{tab.label}</span>
+                  <IconComponent />
+                </Tab>
+              );
+            })}
+          </TabList>
+          <TabPanels p={0}>
+            <TabPanel>
+              <SystemUsers modalType={modalType} refreshTrigger={refreshTrigger} />
+            </TabPanel>
+            <TabPanel>
+              <StudentRecords modalType={modalType} onDataChange={triggerRefresh} />
+            </TabPanel>
+            <TabPanel>
+              <TeacherRecords modalType={modalType} onDataChange={triggerRefresh} />
+            </TabPanel>
+            <TabPanel>
+              <StaffRecords modalType={modalType} onDataChange={triggerRefresh} />
+            </TabPanel>
+            <TabPanel>
+              <ParentRecords modalType={modalType} onDataChange={triggerRefresh} />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
+      </Box>
+      
+      {/* Footer */}
+      <SuperAdminFooter />
+    </VStack>
   );
 };
 
